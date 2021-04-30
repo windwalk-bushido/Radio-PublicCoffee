@@ -1,0 +1,126 @@
+.div_video, .info_about_project, .info_about_project .btn_info,
+.info_about_project i, .info_about_project .heading, .div_playlist, .div_playlist .song, .div_playlist .song .song_info, .div_playlist .song .link_to_artist, .div_playlist .song .link_to_artist a,
+.div_playlist .song .link_to_artist a:visited {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+html {
+  font-size: 16px;
+  font-family: Helvetica, sans-serif;
+  background-color: #000000;
+  color: #FFFFFF; }
+
+::selection {
+  background-color: #474747;
+  color: #FFFFFF; }
+
+.div_video {
+  background-color: #1F1F1F; }
+  .div_video video {
+    width: 100%;
+    margin-top: 87px;
+    cursor: not-allowed; }
+
+.info_about_project .btn_info,
+.info_about_project i {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-style: none;
+  border-radius: 100%;
+  font-size: 1.6rem;
+  cursor: pointer; }
+.info_about_project .btn_info:hover,
+.info_about_project i:hover {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+  transition: 100ms all; }
+.info_about_project .btn_info:active,
+.info_about_project .i:active {
+  background-color: #8AC926;
+  color: #000000;
+  transition: 100ms all; }
+.info_about_project .btn_info {
+  position: relative;
+  margin-top: -0.5rem;
+  z-index: 10; }
+.info_about_project .heading {
+  align-content: flex-end;
+  height: 4rem;
+  border-bottom: 2px solid #1F1F1F; }
+  .info_about_project .heading p {
+    margin: 0px;
+    margin-bottom: 0.25rem;
+    padding: 0px;
+    font-size: 1.5rem; }
+
+.div_playlist .song {
+  border-bottom: 2px solid #1F1F1F; }
+  .div_playlist .song .song_info {
+    flex-direction: column;
+    align-content: flex-start;
+    width: 65%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem;
+    cursor: pointer; }
+    .div_playlist .song .song_info .playlist_artist_name,
+    .div_playlist .song .song_info .playlist_track_name {
+      width: 100%; }
+      .div_playlist .song .song_info .playlist_artist_name p,
+      .div_playlist .song .song_info .playlist_track_name p {
+        margin: 0px;
+        margin-left: 1rem;
+        padding: 0px; }
+    .div_playlist .song .song_info .playlist_track_name {
+      font-weight: bold; }
+  .div_playlist .song .link_to_artist {
+    flex-direction: column;
+    align-content: flex-end;
+    width: 35%; }
+    .div_playlist .song .link_to_artist a,
+    .div_playlist .song .link_to_artist a:visited {
+      width: 5rem;
+      margin-right: 1rem;
+      padding: 0.3rem;
+      border-radius: 2rem;
+      background-color: #474747;
+      color: #FFFFFF;
+      text-decoration: none; }
+    .div_playlist .song .link_to_artist a:visited {
+      transition: 100ms all; }
+    .div_playlist .song .link_to_artist a:hover {
+      background-color: #8AC926;
+      color: #000000;
+      transition: 100ms all; }
+    .div_playlist .song .link_to_artist a:active {
+      background-color: #8AC926;
+      color: #000000;
+      transition: 100ms all; }
+.div_playlist .song:hover {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+  transition: 100ms all; }
+.div_playlist .selected_song {
+  background-color: #8AC926;
+  color: #000000; }
+  .div_playlist .selected_song .link_to_artist a {
+    background-color: #FFFFFF;
+    color: #1F1F1F; }
+  .div_playlist .selected_song .link_to_artist a:hover,
+  .div_playlist .selected_song .link_to_artist a:active {
+    background-color: #FFFFFF;
+    color: #000000;
+    transition: 100ms all; }
+.div_playlist .selected_song:hover {
+  background-color: #8AC926;
+  color: #000000;
+  transition: 100ms all; }
+
+/*# sourceMappingURL=homepage.css.map */

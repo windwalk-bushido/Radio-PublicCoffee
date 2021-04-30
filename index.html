@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>Narkos Radio</title>
+        <meta name="description" content="Listen to royalty free tracks from around the world!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" href="cassette.svg">
+        <link rel="apple-touch-icon" href="cassette.svg">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href="fontawesome/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/my_css/homepage.css">
+        <link rel="stylesheet" href="css/my_css/webmenu.css">
+</head>
+
+<body>
+        <div class="audio_info">
+                <p class="artist_name" id="artist_name">Windwalk</p>
+                <p class="track_name" id="track_name">Track Name</p>
+        </div>
+
+        <div class="div_volume" id="div_volume">
+                <div class="volume" id="volume"></div>
+        </div>
+
+        <div class="div_video">
+                <video src="Ocean.mp4" autoplay loop muted></video> <!-- id="video_from_API" -->
+        </div>
+
+        <div class="info_about_project">
+                <button type="button" name="btn_info" id="btn_info" class="btn_info"><i class="fas fa-info-circle"></i></button>
+                <div class="heading">
+                        <p>Playlist</p>
+                </div>
+        </div>
+
+
+        <audio src="" id="track"></audio>
+
+
+
+        
+        <div class="div_playlist" id="div_playlist">
+                <div class="song" id="song_from_playlist">
+                        <div class="song_info">
+                                <div class="playlist_artist_name">
+                                        <p>Windwalk</p>
+                                </div>
+                                <div class="playlist_track_name">
+                                        <p id="playlist_track_name">Track Name</p>
+                                </div>
+                        </div>
+
+                        <div class="link_to_artist">
+                                <a href="#">Artist Page</a>
+                        </div>
+                </div>
+        </div> 
+
+
+
+
+        <div class="div_track_progress" id="div_track_progress">
+                <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="main_controls" id="main_controls">
+                <button type="button" name="btn_repeat" id="repeat_track" class="btn_repeat"><i class="fas fa-redo"></i></button>
+
+                <button type="button" name="btn_previous_track" id="previous_track"><i class="fas fa-step-backward"></i></button>
+                <button type="button" name="btn_play_pause_track" id="play_pause_track" class="button_play"><i class="fas fa-play" id="pause_icon"></i></button>
+                <button type="button" name="btn_next_track" id="next_track"><i class="fas fa-step-forward"></i></button>
+
+                <button type="button" name="btn_shuffle" id="shuffle_track" class="btn_shuffle"><i class="fas fa-random"></i></button>
+        </div>
+        <div class="empty_space"></div>
+
+
+        <script defer src="js/vendor/modernizr-3.11.2.min.js"></script>
+        <script defer src="js/plugins.js"></script>
+        <script defer src="js/main.js"></script>
+        <script defer src="js/my_js/player.js"></script>
+</body>
+
+</html>

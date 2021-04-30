@@ -1,0 +1,211 @@
+@import "mixins";
+
+$menu_border_radius: 16px;
+$menu_padding_value: 8px;
+
+
+
+
+.audio_info
+{
+        @extend %flexbox;
+        justify-content: space-evenly;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+
+        height: 4rem;
+
+        padding-top: $menu_padding_value;
+        padding-bottom: $menu_padding_value;
+
+        background-color: $grey;
+        color: $main_color;
+
+        z-index: 10;
+
+        .artist_name
+        {
+                @extend %flexbox;
+
+                margin-top: 0.5rem;
+
+                font-size: 1.2rem;
+        }
+
+        .track_name
+        {
+                @extend %flexbox;
+
+                font-size: 1.6rem;
+                font-weight: bold;
+        }
+}
+
+
+
+
+.div_volume
+{
+        @extend %flexbox;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+
+        height: 0.75rem;
+
+        margin-top: 75px;
+
+        background-color: $dark-grey;
+        color: $main_color;
+
+        cursor: pointer;
+
+        .volume
+        {
+                width: 0%;
+                height: 100%;
+
+                background-color: $main_color;
+
+                transition: width 0.1s linear;
+        }
+}
+
+
+
+
+.div_track_progress
+{
+        width: 100%;
+
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+
+        height: 1.75rem;
+        
+        margin-bottom: 3.8rem;
+
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+        background-color: $dark-grey;
+        color: $main_color;
+
+        cursor: pointer;
+
+        .progress
+        {
+                width: 0%;
+                height: 100%;
+
+                border-radius: 1rem;
+
+                background-color: $main_color;
+
+                transition: width 0.1s linear;
+        }
+}
+
+
+
+
+.main_controls
+{
+        @extend %flexbox;
+        justify-content: space-evenly;
+
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+
+        height: 4rem;
+
+        padding-bottom: $menu_padding_value;
+        padding-top: $menu_padding_value;
+
+        border-top-left-radius: $menu_border_radius;
+        border-top-right-radius: $menu_border_radius;
+
+        background-color: $grey;
+
+        z-index: 10;
+
+        button
+        {
+                @extend %flexbox;
+
+                width: 2.8rem;
+                height: 2.8rem;
+
+                border: none;
+                border-radius: 100%;
+
+                font-size: 1.4rem;
+                text-decoration: none;
+
+                background-color: $dark-grey;
+                color: $main_color;
+
+                cursor: pointer;
+                transition: 100ms all;
+        }
+
+        button:hover
+        {
+                background-color: $white;
+                color: $grey;
+
+                transition: 100ms all;
+        }
+
+        button:active
+        {
+                background-color: $main_color;
+                color: $black;
+
+                transition: 100ms all;
+        }
+
+        .button_play
+        {
+                width: 3.2rem;
+                height: 3.2rem;
+
+                i
+                {
+                        font-size: 1.6rem;
+                }
+        }
+
+        .btn_repeat,
+        .btn_shuffle
+        {
+                width: 2.4rem;
+                height: 2.4rem;
+
+                font-size: 1.2rem;
+        }
+
+        .active_state
+        {
+                background-color: $main_color;
+                color: $black;
+
+                transition: 100ms all;
+        }
+}
+
+.empty_space
+{
+        @extend %flexbox;
+        
+        height: 87px;
+}
