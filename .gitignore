@@ -1,0 +1,5 @@
+# Ignoring Sass cache
+.sass-cache
+
+# Ignoring my To-do list
+todo.txt
