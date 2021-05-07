@@ -3,3 +3,5 @@
 
 # Ignoring my To-do list
 todo.txt
+
+node_modules/
