@@ -1,19 +1,17 @@
-var main_controls = document.getElementById('main_controls');
+const main_controls = document.getElementById('main_controls');
 
-var btn_repeat_tracks = document.getElementById('repeat_track');
-var btn_previous_track = document.getElementById('previous_track');
-var btn_play_pause_track = document.getElementById('play_pause_track');
-var btn_next_track = document.getElementById('next_track');
-var btn_shuffle_tracks = document.getElementById('shuffle_track');
+const btn_repeat_tracks = document.getElementById('repeat_track');
+const btn_previous_track = document.getElementById('previous_track');
+const btn_play_pause_track = document.getElementById('play_pause_track');
+const btn_next_track = document.getElementById('next_track');
+const btn_shuffle_tracks = document.getElementById('shuffle_track');
 
-var track = document.getElementById('track');
-var div_track_progress = document.getElementById('div_track_progress');
-var progress_bar = document.getElementById('progress');
+const track = document.getElementById('track');
 
-var track_name = document.getElementById('track_name');
+const div_track_progress = document.getElementById('div_track_progress');
+const progress_bar = document.getElementById('progress');
 
-var div_volume = document.getElementById('div_volume');
-var volume_bar = document.getElementById('volume');
+const track_name = document.getElementById('track_name');
 
 
 var pause_icon = document.getElementById('pause_icon');
@@ -45,7 +43,6 @@ let track_index = 0;
 
 
 
-// When site loads...
 function CenterPlayButton()
 {
         pause_icon.style.marginLeft = "4px";
@@ -167,6 +164,8 @@ function PreviousTrack()
         {
                 LoadTrack(tracks_list[track_index]);
                 PlayTrack();
+
+                //song_from_playlist[track_index].className = 'song selected_song';
         }
 }
 
@@ -219,18 +218,6 @@ function SetTrackProgress(this: any, e: { offsetX: any; })
 
 
 
-function SetVolume(this: any, e: { offsetX: any; })
-{
-        var width = this.clientWidth;
-        var clickX = e.offsetX;
-        
-        track.volume = (clickX / width) * 100;
-        // 1.0 is max volume.
-}
-
-
-
-
 btn_repeat_tracks?.addEventListener('click', ChangeRepeatTracksState);
 btn_previous_track?.addEventListener('click', PreviousTrack);
 btn_play_pause_track?.addEventListener('click', () => 
@@ -254,11 +241,26 @@ div_track_progress?.addEventListener('click', SetTrackProgress);
 
 track?.addEventListener('ended', NextTrack);
 
-volume_bar?.addEventListener('click', SetVolume);
 
 
 
 
+
+
+
+// Click to play song (from playlist)
+const song_number = document.getElementById('song_number');
+const song_from_playlist = document.getElementById('song_from_playlist');
+
+
+function PlayTrackOnDemand()
+{
+        track_index = parseInt(song_number.innerHTML);
+        track_index--;
+
+        LoadTrack(tracks_list[track_index]);
+        PlayTrack();
+}
 
 
 
@@ -275,43 +277,55 @@ function MakePlaylist()
 {
         for (var i = 0; i < total_number_of_tracks; i++)
 	{
-                if (i === 0)
+                if (i == 0)
                 {
                         song_name.innerText = tracks_list[i];
-                        song_name.style.fontWeight = 'bold';
+                        song_number.innerHTML = (i+1).toString();
                 }
                 else
                 {
-                        // Creating track div
+                        // Main track div
                         var song_in_playlist = document.createElement('div');
                         playlist?.appendChild(song_in_playlist);
                         song_in_playlist.className = 'song';
+                        song_in_playlist.id = 'song_from_playlist';
 
 
-                        // Creating track info -> div for: artist name div, track name div + div for link to artist page
+                        // Div for main track info
                         var song_info = document.createElement('div');
                         song_in_playlist?.appendChild(song_info);
                         song_info.className = 'song_info';
 
-                        var div_for_link_to_artist = document.createElement('div');
-                        song_in_playlist?.appendChild(div_for_link_to_artist);
-                        div_for_link_to_artist.className = 'link_to_artist';
+
+                        // Track number + div
+                        var div_for_song_number = document.createElement('div');
+                        song_info?.appendChild(div_for_song_number);
+                        div_for_song_number.className = 'song_number';
+
+                        var real_song_number = document.createElement('p');
+                        div_for_song_number.appendChild(real_song_number);
+                        real_song_number.id = 'song_number';
+                        real_song_number.innerHTML = (i+1).toString();
 
 
-                        // Creating mentioned divs
+                        // Artist div + artist name
+                        var div_for_main_info = document.createElement('div');
+                        song_info?.appendChild(div_for_main_info);
+                        div_for_main_info.className = 'main_info';
+
                         var playlist_artist_name = document.createElement('div');
-                        song_info?.appendChild(playlist_artist_name);
+                        div_for_main_info?.appendChild(playlist_artist_name);
                         playlist_artist_name.className = 'playlist_artist_name';
 
-                        var playlist_track_name = document.createElement('div');
-                        song_info?.appendChild(playlist_track_name);
-                        playlist_track_name.className = 'playlist_track_name';
-
-
-                        // Creating paragraphs to fit those info
                         var artist_name = document.createElement('p');
                         playlist_artist_name?.appendChild(artist_name);
                         artist_name.innerHTML = 'Windwalk';
+
+
+                        // Track div + track name
+                        var playlist_track_name = document.createElement('div');
+                        div_for_main_info?.appendChild(playlist_track_name);
+                        playlist_track_name.className = 'playlist_track_name';
 
                         var track_name = document.createElement('p');
                         playlist_artist_name?.appendChild(track_name);
@@ -319,7 +333,21 @@ function MakePlaylist()
                         track_name.style.fontWeight = 'bold';
 
 
-                        // Creating actual link to artist page
+                        // Div for links
+                        var div_for_link_to_artist = document.createElement('div');
+                        song_in_playlist?.appendChild(div_for_link_to_artist);
+                        div_for_link_to_artist.className = 'link_to_artist';
+
+
+                        // Heart button
+                        var heart_button = document.createElement('a');
+                        div_for_link_to_artist?.appendChild(heart_button);
+                        heart_button.className = 'heart';
+                        var actual_heart = document.createElement('i');
+                        heart_button.appendChild(actual_heart);
+                        actual_heart.className = 'fas fa-heart';
+
+                        // Artist page button
                         var actual_link_to_artist = document.createElement('a');
                         div_for_link_to_artist?.appendChild(actual_link_to_artist);
                         actual_link_to_artist.innerHTML = 'Artist Page';
@@ -329,3 +357,9 @@ function MakePlaylist()
 }
 
 MakePlaylist();
+
+
+
+
+song_from_playlist?.addEventListener('click', PlayTrackOnDemand);
+song_from_playlist?.addEventListener('ended', NextTrack);

@@ -3,7 +3,7 @@
 
 <head>
         <meta charset="utf-8">
-        <title>Narkos Radio</title>
+        <title>Radio Public Coffee</title>
         <meta name="description" content="Listen to royalty free tracks from around the world!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,25 +19,20 @@
 
 <body>
         <div class="audio_info">
-                <p class="artist_name" id="artist_name">Windwalk</p>
+                <p class="artist_name" id="artist_name">Artist Name</p>
                 <p class="track_name" id="track_name">Track Name</p>
         </div>
 
-        <div class="div_volume" id="div_volume">
-                <div class="volume" id="volume"></div>
-        </div>
-
         <div class="div_video">
-                <video src="Ocean.mp4" autoplay loop muted></video> <!-- id="video_from_API" -->
+                <video src="Ocean.mp4" autoplay loop muted></video>
         </div>
 
         <div class="info_about_project">
                 <button type="button" name="btn_info" id="btn_info" class="btn_info"><i class="fas fa-info-circle"></i></button>
-                <div class="heading">
+                <div class="playlist_heading">
                         <p>Playlist</p>
                 </div>
         </div>
-
 
         <audio src="" id="track"></audio>
 
@@ -47,15 +42,21 @@
         <div class="div_playlist" id="div_playlist">
                 <div class="song" id="song_from_playlist">
                         <div class="song_info">
-                                <div class="playlist_artist_name">
-                                        <p>Windwalk</p>
+                                <div class="song_number">
+                                        <p id='song_number'>1.</p>
                                 </div>
-                                <div class="playlist_track_name">
-                                        <p id="playlist_track_name">Track Name</p>
+                                <div class="main_info">
+                                        <div class="playlist_artist_name">
+                                                <p>Artist Name</p>
+                                        </div>
+                                        <div class="playlist_track_name">
+                                                <p id="playlist_track_name">Track Name</p>
+                                        </div>
                                 </div>
                         </div>
 
                         <div class="link_to_artist">
+                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <a href="#">Artist Page</a>
                         </div>
                 </div>

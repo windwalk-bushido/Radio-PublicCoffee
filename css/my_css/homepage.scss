@@ -7,12 +7,18 @@ html
 
         background-color: $black;
         color: $white;
+
+        p
+        {
+                margin: 0px;
+                padding: 0px;
+        }
 }
 
 ::selection
 {
         background-color: $dark-grey;
-        color: $white;
+        color: $main_color;
 }
 
 
@@ -28,7 +34,7 @@ html
         {
                 width: 100%;
 
-                margin-top: 87px;
+                margin-top: 80px;
 
                 cursor: not-allowed;
         }
@@ -58,20 +64,18 @@ html
                 cursor: pointer;
         }
 
-        .btn_info:hover,
         i:hover
         {
-                background-color: $white;
-                color: $grey;
+                @extend %gradient;
+                color: $white;
 
                 transition: 100ms all;
         }
 
-        .btn_info:active,
-        .i:active
+        i:active
         {
-                background-color: $main_color;
-                color: $black;
+                @extend %gradient;
+                color: $white;
 
                 transition: 100ms all;
         }
@@ -80,12 +84,10 @@ html
         {
                 position: relative;
 
-                margin-top: -0.5rem;
-                
-                z-index: 10;
+                margin-top: -0.7rem;
         }
 
-        .heading
+        .playlist_heading
         {
                 @extend %flexbox;
                 align-content: flex-end;
@@ -118,45 +120,63 @@ html
 
                 border-bottom: 2px solid $grey;
 
+                cursor: pointer;
+
                 .song_info
                 {
                         @extend %flexbox;
-                        flex-direction: column;
                         align-content: flex-start;
 
-                        width: 65%;
+                        width: 60%;
+                        height: 100%;
 
                         padding-top: 0.6rem;
                         padding-bottom: 0.4rem;
 
-                        cursor: pointer;
-
-                        .playlist_artist_name,
-                        .playlist_track_name
+                        .song_number 
                         {
-                                width: 100%;
+                                width: 10%;
+                                height: 100%;
 
                                 p
                                 {
-                                        margin: 0px;
-                                        margin-left: 1rem;
-                                        padding: 0px;
+                                        margin-left: 1.2rem;
+                                        font-weight: bold;
                                 }
                         }
 
-                        .playlist_track_name
+                        .main_info
                         {
-                                font-weight: bold;
+                                width: 90%;
+                                height: 100%;
+
+                                .playlist_artist_name,
+                                .playlist_track_name
+                                {
+                                        width: 100%;
+
+                                        p
+                                        {
+                                                margin: 0px;
+                                                margin-left: 1.5rem;
+                                                padding: 0px;
+                                        }
+                                }
+
+                                .playlist_track_name
+                                {
+                                        font-weight: bold;
+                                }
                         }
                 }
 
                 .link_to_artist
                 {
                         @extend %flexbox;
-                        flex-direction: column;
                         align-content: flex-end;
 
-                        width: 35%;
+                        width: 40%;
+                        height: 100%;
 
                         a,
                         a:visited
@@ -165,7 +185,7 @@ html
 
                                 width: 5rem;
 
-                                margin-right: 1rem;
+                                margin-right: 0.5rem;
                                 padding: 0.3rem;
 
                                 border-radius: 2rem;
@@ -183,18 +203,30 @@ html
 
                         a:hover
                         {
-                                background-color: $main_color;
-                                color: $black;
+                                @extend %gradient;
+                                color: $white;
 
                                 transition: 100ms all;
                         }
 
                         a:active
                         {
-                                background-color: $main_color;
-                                color: $black;
+                                @extend %gradient;
+                                color: $white;
 
                                 transition: 100ms all;
+                        }
+
+                        .heart
+                        {
+                                @extend %flexbox;
+
+                                width: 2rem;
+                                height: 2rem;
+
+                                margin-right: 0.5rem;
+
+                                font-size: 1rem;
                         }
                 }
         }
@@ -209,8 +241,8 @@ html
 
         .selected_song
         {
-                background-color: $main_color;
-                color: $black;
+                @extend %gradient;
+                color: $white;
 
                 .link_to_artist
                 {
@@ -224,7 +256,7 @@ html
                         a:active
                         {
                                 background-color: $white;
-                                color: $black;
+                                color: $main_color;
         
                                 transition: 100ms all;
                         }
@@ -233,9 +265,18 @@ html
 
         .selected_song:hover
         {
-                background-color: $main_color;
-                color: $black;
+                @extend %gradient;
+                color: $white;
 
                 transition: 100ms all;
+
+                a:hover,
+                a:active
+                {
+                        background-color: $white;
+                        color: $main_color;
+        
+                        transition: 100ms all;
+                }
         }
 }

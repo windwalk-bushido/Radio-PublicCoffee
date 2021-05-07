@@ -2,7 +2,7 @@ $black: #000000;
 $white: #FFFFFF;
 $grey: #1F1F1F;
 $dark-grey: #474747;
-$main_color: #8AC926;
+$main_color: #F18805;
 
 %flexbox
 {
@@ -16,4 +16,16 @@ $main_color: #8AC926;
         width: 100%;
         margin: 0px;
         padding: 0px;
+}
+
+%gradient
+{
+        background: rgb(217,93,57);
+        background: linear-gradient(90deg, rgba(217,93,57,1) 0%, rgba(95,15,64,1) 100%); 
+}
+
+%anti-gradient
+{
+        background: rgba(95,15,64,1);
+        background: linear-gradient(90deg, rgba(95,15,64,1) 0%, rgba(217,93,57,1) 100%);
 }

@@ -47,38 +47,6 @@ $menu_padding_value: 8px;
 
 
 
-.div_volume
-{
-        @extend %flexbox;
-
-        top: 0;
-        left: 0;
-        right: 0;
-        position: fixed;
-
-        height: 0.75rem;
-
-        margin-top: 75px;
-
-        background-color: $dark-grey;
-        color: $main_color;
-
-        cursor: pointer;
-
-        .volume
-        {
-                width: 0%;
-                height: 100%;
-
-                background-color: $main_color;
-
-                transition: width 0.1s linear;
-        }
-}
-
-
-
-
 .div_track_progress
 {
         width: 100%;
@@ -107,7 +75,7 @@ $menu_padding_value: 8px;
 
                 border-radius: 1rem;
 
-                background-color: $main_color;
+                @extend %gradient;
 
                 transition: width 0.1s linear;
         }
@@ -160,16 +128,16 @@ $menu_padding_value: 8px;
 
         button:hover
         {
-                background-color: $white;
-                color: $grey;
+                @extend %gradient;
+                color: $white;
 
                 transition: 100ms all;
         }
 
         button:active
         {
-                background-color: $main_color;
-                color: $black;
+                @extend %gradient;
+                color: $white;
 
                 transition: 100ms all;
         }
@@ -196,8 +164,15 @@ $menu_padding_value: 8px;
 
         .active_state
         {
-                background-color: $main_color;
-                color: $black;
+                @extend %gradient;
+                color: $white;
+
+                transition: 100ms all;
+        }
+
+        .active_state:hover
+        {
+                @extend %anti-gradient;
 
                 transition: 100ms all;
         }
@@ -207,5 +182,5 @@ $menu_padding_value: 8px;
 {
         @extend %flexbox;
         
-        height: 87px;
+        height: 88px;
 }

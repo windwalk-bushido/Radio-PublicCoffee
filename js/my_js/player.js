@@ -8,8 +8,6 @@ var track = document.getElementById('track');
 var div_track_progress = document.getElementById('div_track_progress');
 var progress_bar = document.getElementById('progress');
 var track_name = document.getElementById('track_name');
-var div_volume = document.getElementById('div_volume');
-var volume_bar = document.getElementById('volume');
 var pause_icon = document.getElementById('pause_icon');
 // Make function to scan the folder for song names and add them into array. Possible via JSON?
 var tracks_list = [
@@ -30,7 +28,6 @@ var shuffle_state_is_on = false;
 var repeat_state_is_on = false;
 var total_number_of_tracks = tracks_list.length;
 var track_index = 0;
-// When site loads...
 function CenterPlayButton() {
     pause_icon.style.marginLeft = "4px";
 }
@@ -107,6 +104,7 @@ function PreviousTrack() {
     if (track_index > -1) {
         LoadTrack(tracks_list[track_index]);
         PlayTrack();
+        //song_from_playlist[track_index].className = 'song selected_song';
     }
 }
 function NextTrack() {
@@ -137,12 +135,6 @@ function SetTrackProgress(e) {
     var duration = track === null || track === void 0 ? void 0 : track.duration;
     track.some_time = (clickX / width) * duration;
 }
-function SetVolume(e) {
-    var width = this.clientWidth;
-    var clickX = e.offsetX;
-    track.volume = (clickX / width) * 100;
-    // 1.0 is max volume.
-}
 btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.addEventListener('click', ChangeRepeatTracksState);
 btn_previous_track === null || btn_previous_track === void 0 ? void 0 : btn_previous_track.addEventListener('click', PreviousTrack);
 btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.addEventListener('click', function () {
@@ -159,44 +151,72 @@ btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuf
 track === null || track === void 0 ? void 0 : track.addEventListener('timeupdate', UpdateTrackProgress); // <- THIS
 div_track_progress === null || div_track_progress === void 0 ? void 0 : div_track_progress.addEventListener('click', SetTrackProgress);
 track === null || track === void 0 ? void 0 : track.addEventListener('ended', NextTrack);
-volume_bar === null || volume_bar === void 0 ? void 0 : volume_bar.addEventListener('click', SetVolume);
+// Click to play song (from playlist)
+var song_number = document.getElementById('song_number');
+var song_from_playlist = document.getElementById('song_from_playlist');
+function PlayTrackOnDemand() {
+    track_index = parseInt(song_number.innerHTML);
+    track_index--;
+    LoadTrack(tracks_list[track_index]);
+    PlayTrack();
+}
 // PLAYLIST
 var playlist = document.getElementById('div_playlist');
 var song_name = document.getElementById('playlist_track_name');
 function MakePlaylist() {
     for (var i = 0; i < total_number_of_tracks; i++) {
-        if (i === 0) {
+        if (i == 0) {
             song_name.innerText = tracks_list[i];
-            song_name.style.fontWeight = 'bold';
+            song_number.innerHTML = (i + 1).toString();
         }
         else {
-            // Creating track div
+            // Main track div
             var song_in_playlist = document.createElement('div');
             playlist === null || playlist === void 0 ? void 0 : playlist.appendChild(song_in_playlist);
             song_in_playlist.className = 'song';
-            // Creating track info -> div for: artist name div, track name div + div for link to artist page
+            song_in_playlist.id = 'song_from_playlist';
+            // Div for main track info
             var song_info = document.createElement('div');
             song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(song_info);
             song_info.className = 'song_info';
-            var div_for_link_to_artist = document.createElement('div');
-            song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(div_for_link_to_artist);
-            div_for_link_to_artist.className = 'link_to_artist';
-            // Creating mentioned divs
+            // Track number + div
+            var div_for_song_number = document.createElement('div');
+            song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(div_for_song_number);
+            div_for_song_number.className = 'song_number';
+            var real_song_number = document.createElement('p');
+            div_for_song_number.appendChild(real_song_number);
+            real_song_number.id = 'song_number';
+            real_song_number.innerHTML = (i + 1).toString();
+            // Artist div + artist name
+            var div_for_main_info = document.createElement('div');
+            song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(div_for_main_info);
+            div_for_main_info.className = 'main_info';
             var playlist_artist_name = document.createElement('div');
-            song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(playlist_artist_name);
+            div_for_main_info === null || div_for_main_info === void 0 ? void 0 : div_for_main_info.appendChild(playlist_artist_name);
             playlist_artist_name.className = 'playlist_artist_name';
-            var playlist_track_name = document.createElement('div');
-            song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(playlist_track_name);
-            playlist_track_name.className = 'playlist_track_name';
-            // Creating paragraphs to fit those info
             var artist_name = document.createElement('p');
             playlist_artist_name === null || playlist_artist_name === void 0 ? void 0 : playlist_artist_name.appendChild(artist_name);
             artist_name.innerHTML = 'Windwalk';
+            // Track div + track name
+            var playlist_track_name = document.createElement('div');
+            div_for_main_info === null || div_for_main_info === void 0 ? void 0 : div_for_main_info.appendChild(playlist_track_name);
+            playlist_track_name.className = 'playlist_track_name';
             var track_name = document.createElement('p');
             playlist_artist_name === null || playlist_artist_name === void 0 ? void 0 : playlist_artist_name.appendChild(track_name);
             track_name.innerHTML = tracks_list[i];
             track_name.style.fontWeight = 'bold';
-            // Creating actual link to artist page
+            // Div for links
+            var div_for_link_to_artist = document.createElement('div');
+            song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(div_for_link_to_artist);
+            div_for_link_to_artist.className = 'link_to_artist';
+            // Heart button
+            var heart_button = document.createElement('a');
+            div_for_link_to_artist === null || div_for_link_to_artist === void 0 ? void 0 : div_for_link_to_artist.appendChild(heart_button);
+            heart_button.className = 'heart';
+            var actual_heart = document.createElement('i');
+            heart_button.appendChild(actual_heart);
+            actual_heart.className = 'fas fa-heart';
+            // Artist page button
             var actual_link_to_artist = document.createElement('a');
             div_for_link_to_artist === null || div_for_link_to_artist === void 0 ? void 0 : div_for_link_to_artist.appendChild(actual_link_to_artist);
             actual_link_to_artist.innerHTML = 'Artist Page';
@@ -205,3 +225,5 @@ function MakePlaylist() {
     }
 }
 MakePlaylist();
+song_from_playlist === null || song_from_playlist === void 0 ? void 0 : song_from_playlist.addEventListener('click', PlayTrackOnDemand);
+song_from_playlist === null || song_from_playlist === void 0 ? void 0 : song_from_playlist.addEventListener('ended', NextTrack);

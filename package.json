@@ -1,7 +1,7 @@
 {
 	"name": "radio-publiccoffee",
   	"version": "0.2.0",
-  	"description": "Using this to push code directly to surge when I push to Github repo.",
+  	"description": "Using this to push code directly to Surge.sh when I push to Github repo.",
   	"main": "index.html",
   	"scripts":
   	{
