@@ -1,4 +1,4 @@
-.empty_space, .div_main_controls button, .div_main_controls, .div_current_track_playing_info .track_name, .div_current_track_playing_info .artist_name, .div_current_track_playing_info {
+.div_current_track_playing_info, .div_current_track_playing_info .artist_name, .div_current_track_playing_info .track_name, .div_main_controls, .div_main_controls button, .empty_space {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -8,18 +8,15 @@
   justify-content: center;
   width: 100%;
   margin: 0px;
-  padding: 0px;
-}
+  padding: 0px; }
 
-.div_main_controls .active_state, .div_main_controls button:active, .div_main_controls button:hover, .div_track_progress .progress_bar {
+.div_track_progress .progress_bar, .div_main_controls button:hover, .div_main_controls button:active, .div_main_controls .active_state {
   background: #d95d39;
-  background: linear-gradient(90deg, #d95d39 0%, #5f0f40 100%);
-}
+  background: linear-gradient(90deg, #d95d39 0%, #5f0f40 100%); }
 
 .div_main_controls .active_state:hover {
   background: #5f0f40;
-  background: linear-gradient(90deg, #5f0f40 0%, #d95d39 100%);
-}
+  background: linear-gradient(90deg, #5f0f40 0%, #d95d39 100%); }
 
 .div_current_track_playing_info {
   justify-content: space-evenly;
@@ -32,35 +29,30 @@
   padding-bottom: 8px;
   background-color: #1F1F1F;
   color: #F18805;
-  z-index: 10;
-}
-.div_current_track_playing_info .artist_name {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-}
-.div_current_track_playing_info .track_name {
-  font-size: 1.6rem;
-  font-weight: bold;
-}
+  z-index: 10; }
+  .div_current_track_playing_info .artist_name {
+    margin-top: 0.5rem;
+    font-size: 1.2rem; }
+  .div_current_track_playing_info .track_name {
+    font-size: 1.6rem;
+    font-weight: bold; }
 
 .div_track_progress {
-  width: 100%;
   bottom: 0;
   left: 0;
   right: 0;
   position: fixed;
+  width: 100%;
   height: 1.75rem;
   margin-bottom: 3.8rem;
   background-color: #474747;
   color: #F18805;
-  cursor: pointer;
-}
-.div_track_progress .progress_bar {
-  width: 0%;
-  height: 100%;
-  border-radius: 1rem;
-  transition: width 0.1s linear;
-}
+  cursor: pointer; }
+  .div_track_progress .progress_bar {
+    width: 0%;
+    height: 100%;
+    border-radius: 1rem;
+    transition: width 0.1s linear; }
 
 .div_main_controls {
   justify-content: space-evenly;
@@ -74,47 +66,40 @@
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   background-color: #1F1F1F;
-  z-index: 10;
-}
-.div_main_controls button {
-  width: 2.8rem;
-  height: 2.8rem;
-  border: none;
-  border-radius: 100%;
-  font-size: 1.4rem;
-  text-decoration: none;
-  background-color: #474747;
-  color: #F18805;
-  cursor: pointer;
-  transition: 100ms all;
-}
-.div_main_controls button:hover {
-  color: #FFFFFF;
-  transition: 100ms all;
-}
-.div_main_controls button:active {
-  color: #FFFFFF;
-  transition: 100ms all;
-}
-.div_main_controls .button_play {
-  width: 3.2rem;
-  height: 3.2rem;
-  font-size: 1.6rem;
-}
-.div_main_controls .btn_repeat_track,
-.div_main_controls .btn_shuffle_track {
-  width: 2.4rem;
-  height: 2.4rem;
-  font-size: 1.2rem;
-}
-.div_main_controls .active_state {
-  color: #FFFFFF;
-  transition: 100ms all;
-}
-.div_main_controls .active_state:hover {
-  transition: 100ms all;
-}
+  z-index: 10; }
+  .div_main_controls button {
+    width: 2.8rem;
+    height: 2.8rem;
+    border: none;
+    border-radius: 100%;
+    font-size: 1.4rem;
+    text-decoration: none;
+    background-color: #474747;
+    color: #F18805;
+    cursor: pointer;
+    transition: 100ms all; }
+  .div_main_controls button:hover {
+    color: #FFFFFF;
+    transition: 100ms all; }
+  .div_main_controls button:active {
+    color: #FFFFFF;
+    transition: 100ms all; }
+  .div_main_controls .button_play {
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 1.6rem; }
+  .div_main_controls .btn_repeat_track,
+  .div_main_controls .btn_shuffle_track {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.2rem; }
+  .div_main_controls .active_state {
+    color: #FFFFFF;
+    transition: 100ms all; }
+  .div_main_controls .active_state:hover {
+    transition: 100ms all; }
 
 .empty_space {
-  height: 88px;
-}/*# sourceMappingURL=webmenu.css.map */
+  height: 89px; }
+
+/*# sourceMappingURL=webmenu.css.map */
