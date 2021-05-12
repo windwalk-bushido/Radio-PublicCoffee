@@ -1,6 +1,6 @@
-.div_video, .div_player_component, .div_player_component .div_info_about_website, .div_player_component .div_info_about_website .btn_info,
-.div_player_component .div_info_about_website i, .div_player_component .div_info_about_website .div_playlist_heading, .div_player_component .div_playlist, .div_player_component .div_playlist .div_track, .div_player_component .div_playlist .div_track .div_track_info, .div_player_component .div_playlist .div_track .div_track_info .div_main_info, .div_player_component .div_playlist .div_track .div_likes_and_downloads, .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-.div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+.body, .body .div_video, .body .div_player_component, .body .div_player_component .div_info_about_website, .body .div_player_component .div_info_about_website .btn_info,
+.body .div_player_component .div_info_about_website i, .body .div_player_component .div_info_about_website .div_playlist_heading, .body .div_player_component .div_playlist, .body .div_player_component .div_playlist .div_track, .body .div_player_component .div_playlist .div_track .div_track_info, .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
+.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -12,11 +12,11 @@
   margin: 0px;
   padding: 0px; }
 
-.div_player_component .div_info_about_website i:hover, .div_player_component .div_info_about_website i:active, .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover, .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
+.body .div_player_component .div_info_about_website i:hover, .body .div_player_component .div_info_about_website i:active, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
   background: #d95d39;
   background: linear-gradient(90deg, #d95d39 0%, #5f0f40 100%); }
 
-.div_player_component .div_playlist .selected_track, .div_player_component .div_playlist .selected_track:hover {
+.body .div_player_component .div_playlist .selected_track, .body .div_player_component .div_playlist .selected_track:hover {
   background: #5f0f40;
   background: linear-gradient(90deg, #5f0f40 0%, #d95d39 100%); }
 
@@ -33,81 +33,78 @@ html {
   background-color: #474747;
   color: #F18805; }
 
-.div_video {
-  background-color: #1F1F1F; }
-  .div_video video {
-    width: 100%;
-    margin-top: 80px; }
-
-.div_player_component .div_info_about_website .btn_info,
-.div_player_component .div_info_about_website i {
+.body .div_video video {
+  width: 100%;
+  margin-top: 80px; }
+.body .div_player_component .div_info_about_website .btn_info,
+.body .div_player_component .div_info_about_website i {
   width: 1.4rem;
   height: 1.4rem;
   border-style: none;
   border-radius: 100%;
   font-size: 1.6rem;
   cursor: pointer; }
-.div_player_component .div_info_about_website i:hover {
+.body .div_player_component .div_info_about_website i:hover {
   color: #FFFFFF;
   transition: 100ms all; }
-.div_player_component .div_info_about_website i:active {
+.body .div_player_component .div_info_about_website i:active {
   color: #FFFFFF;
   transition: 100ms all; }
-.div_player_component .div_info_about_website .btn_info {
+.body .div_player_component .div_info_about_website .btn_info {
   position: relative;
   margin-top: -0.7rem; }
-.div_player_component .div_info_about_website .div_playlist_heading {
+.body .div_player_component .div_info_about_website .div_playlist_heading {
   align-content: flex-end;
   height: 4rem;
   border-bottom: 2px solid #FFFFFF; }
-  .div_player_component .div_info_about_website .div_playlist_heading p {
+  .body .div_player_component .div_info_about_website .div_playlist_heading p {
     margin: 0px;
     margin-bottom: 0.25rem;
     padding: 0px;
     font-size: 1.5rem; }
-.div_player_component .background_image {
+.body .div_player_component .background_image {
   top: 0;
   left: 0;
   right: 0;
   position: fixed;
   filter: blur(4px);
   z-index: -10; }
-.div_player_component .div_playlist .div_track {
+.body .div_player_component .div_playlist .div_track {
   justify-content: space-between;
   border-bottom: 2px solid #FFFFFF;
   cursor: pointer; }
-  .div_player_component .div_playlist .div_track .div_track_info {
+  .body .div_player_component .div_playlist .div_track .div_track_info {
     justify-content: flex-start;
     min-width: 196px;
     max-width: 60%;
     padding-top: 0.6rem;
     padding-bottom: 0.4rem; }
-    .div_player_component .div_playlist .div_track .div_track_info .div_track_index {
+    .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index {
       min-width: 32px;
       max-width: 20%; }
-      .div_player_component .div_playlist .div_track .div_track_info .div_track_index p {
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index p {
         margin-left: 0.5rem; }
-    .div_player_component .div_playlist .div_track .div_track_info .div_main_info {
+    .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info {
       min-width: 154px;
       max-width: 70%; }
-      .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name,
-      .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name,
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
         width: 100%; }
-        .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name p,
-        .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name p {
+        .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name p,
+        .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name p {
           margin-left: 0.5rem; }
-      .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
         font-weight: bold; }
-  .div_player_component .div_playlist .div_track .div_likes_and_downloads {
+  .body .div_player_component .div_playlist .div_track .div_likes_and_downloads {
     justify-content: flex-end;
     min-width: 124px;
     max-width: 20%; }
-    .div_player_component .div_playlist .div_track .div_likes_and_downloads .div_likes p {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads .div_likes p {
       margin-top: 4px;
       margin-right: 0.5rem;
       font-weight: bold; }
-    .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-    .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
       width: 2rem;
       height: 2rem;
       margin-right: 0.5rem;
@@ -115,39 +112,55 @@ html {
       background-color: #474747;
       color: #FFFFFF;
       text-decoration: none; }
-    .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
       transition: 100ms all; }
-    .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover {
       color: #FFFFFF;
       transition: 100ms all; }
-    .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
       color: #FFFFFF;
       transition: 100ms all; }
-.div_player_component .div_playlist .div_track:hover {
+.body .div_player_component .div_playlist .div_track:hover {
   background-color: #FFFFFF;
   color: #1F1F1F;
   transition: 100ms all; }
-.div_player_component .div_playlist .selected_track {
+.body .div_player_component .div_playlist .selected_track {
   color: #FFFFFF; }
-  .div_player_component .div_playlist .selected_track .div_likes_and_downloads a,
-  .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:hover,
-  .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:active {
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:hover,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:active {
     background-color: #FFFFFF;
     color: #1F1F1F;
     transition: 100ms all; }
-.div_player_component .div_playlist .selected_track:hover {
+.body .div_player_component .div_playlist .selected_track:hover {
   color: #FFFFFF;
   transition: 100ms all; }
-  .div_player_component .div_playlist .selected_track:hover a:hover,
-  .div_player_component .div_playlist .selected_track:hover a:active {
+  .body .div_player_component .div_playlist .selected_track:hover a:hover,
+  .body .div_player_component .div_playlist .selected_track:hover a:active {
     background: #FFFFFF;
     background-color: #FFFFFF;
     color: #1F1F1F;
     transition: 100ms all; }
 
-/* @media only screen and (min-device-width: 1024px) 
-{
-        
-} */
+@media only screen and (min-device-width: 1024px) {
+  .body {
+    /*
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 320px;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "video video video video video video video video video player";
+    
+    justify-items: stretch;
+    justify-content: stretch;
+    align-items: flex-start;
+    align-content: stretch;
+    */ }
+    .body .div_video {
+      top: 0;
+      left: 0;
+      right: 0;
+      position: fixed;
+      aspect-ratio: 16/9; } }
 
 /*# sourceMappingURL=homepage.css.map */

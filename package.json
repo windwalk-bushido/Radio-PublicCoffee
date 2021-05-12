@@ -1,33 +1,28 @@
 {
 	"name": "radio-publiccoffee",
-  	"version": "0.2.0",
-  	"description": "Using this to push code directly to Surge.sh when I push to Github repo.",
-  	"main": "index.html",
-  	"scripts":
-  	{
-    		"test": "echo \"Error: no test specified\" && exit 1"
-  	},
-  	"repository":
-  	{
-    		"type": "git",
-    		"url": "git+https://github.com/windwalk-bushido/Radio-PublicCoffee.git"
-  	},
-  	"author": "windwalk-bushido",
-  	"license": "SEE LICENCE IN LICENCE",
-  	"bugs":
-  	{
-    		"url": "https://github.com/windwalk-bushido/Radio-PublicCoffee/issues"
-  	},
-  	"homepage": "https://github.com/windwalk-bushido/Radio-PublicCoffee#readme",
-  	"devDependencies":
-  	{
-    		"git-scripts": "^0.4.3",
-    		"surge": "^0.23.0"
-  	},
-	"git":
-	{
-		"scripts":
-		{
+	"version": "0.2.0",
+	"description": "Using this to push code directly to Surge.sh when I push to Github repo.",
+	"main": "index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/windwalk-bushido/Radio-PublicCoffee.git"
+	},
+	"author": "windwalk-bushido",
+	"license": "SEE LICENCE IN LICENCE",
+	"bugs": {
+		"url": "https://github.com/windwalk-bushido/Radio-PublicCoffee/issues"
+	},
+	"homepage": "https://github.com/windwalk-bushido/Radio-PublicCoffee#readme",
+	"devDependencies": {
+		"@types/jquery": "^3.5.5",
+		"git-scripts": "^0.4.3",
+		"surge": "^0.23.0"
+	},
+	"git": {
+		"scripts": {
 			"pre-push": "surge --project ./ --domain radio-publiccoffee.surge.sh"
 		}
 	}

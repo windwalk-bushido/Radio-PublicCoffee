@@ -1,30 +1,62 @@
-"use strict";
-exports.__esModule = true;
-var main_controls = document.getElementById('main_controls');
-var btn_repeat_tracks = document.getElementById('repeat_track');
-var btn_previous_track = document.getElementById('previous_track');
-var btn_play_pause_track = document.getElementById('play_pause_track');
-var btn_next_track = document.getElementById('next_track');
-var btn_shuffle_tracks = document.getElementById('shuffle_track');
-var track = document.getElementById('track');
-var div_track_progress = document.getElementById('div_track_progress');
-var progress_bar = document.getElementById('progress');
-var track_name = document.getElementById('track_name');
-var pause_icon = document.getElementById('pause_icon');
-var tracks_json_1 = require("tracks.json"); // <--- Use some fix to fetch JSON file and pass it into object.
-// ---------------------------------------------------------------- //
-var json_object = JSON.parse(tracks_json_1["default"]);
-var json_total_tracks = json_object.total_tracks;
-var artist_list = [];
-var tracks_list = [];
-var link_list = [];
-var hearts_list = [];
-for (var i = 0; i < json_total_tracks; i++) {
-    artist_list[i] = json_object.tracks[i].artist;
-    tracks_list[i] = json_object.tracks[i].name;
-    link_list[i] = json_object.tracks[i].link;
-    hearts_list[i] = json_object.tracks[i].hearts;
+var main_controls = document.getElementById("div_main_controls");
+var btn_repeat_tracks = document.getElementById("btn_repeat_track");
+var btn_previous_track = document.getElementById("btn_previous_track");
+var btn_play_pause_track = document.getElementById("btn_play_pause_track");
+var btn_next_track = document.getElementById("btn_next_track");
+var btn_shuffle_tracks = document.getElementById("btn_shuffle_track");
+var track = document.getElementById("track");
+var div_track_progress = document.getElementById("div_track_progress");
+var progress_bar = document.getElementById("progress_bar");
+var track_name_of_current_track_playing = document.getElementById("track_name_of_current_track_playing");
+var pause_icon = document.getElementById("pause_icon");
+/*
+const obj_tracks_xhr = new XMLHttpRequest();
+
+var json_object = "";
+
+obj_tracks_xhr.onload = function()
+{
+        json_object = JSON.parse(this.responseText);
+        console.log(json_object);
 }
+
+obj_tracks_xhr.open("get", "tracks.json");
+obj_tracks_xhr.send();
+
+
+// ---------------------------------------------------------------- //
+
+
+var json_total_tracks = json_object.total_tracks;
+
+var artist_list: string | any[] = [];
+var tracks_list: string | any[] = [];
+var link_list: string | any[] = [];
+var hearts_list: string | number[] = [];
+
+
+for(var i = 0; i < json_total_tracks; i++)
+{
+        artist_list[i] = json_object.tracks[i].artist;
+        tracks_list[i] = json_object.tracks[i].name;
+        link_list[i] = json_object.tracks[i].link;
+        hearts_list[i] = json_object.tracks[i].hearts;
+}
+*/
+var tracks_list = [
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+];
 var shuffle_state_is_on = false;
 var repeat_state_is_on = false;
 var total_number_of_tracks = tracks_list.length;
@@ -34,37 +66,39 @@ function CenterPlayButton() {
     pause_icon.style.marginLeft = "4px";
 }
 function LoadTrack(tracks_list) {
-    track_name.innerText = tracks_list;
+    track_name_of_current_track_playing.innerText = tracks_list;
     track.src = "music/" + tracks_list + ".mp3";
 }
 LoadTrack(tracks_list[track_index]);
 CenterPlayButton();
+var current_artist = document.getElementById("artist_name_of_current_track_playing");
+current_artist.innerHTML = "Windwalk";
 function ChangeSelectedSongStyle() {
-    //song_from_playlist[track_index].className = 'song selected_song';
-    //song_from_playlist[last_track_index].className = 'song';
+    //track_from_playlist[track_index].className = "song selected_song";
+    //track_from_playlist[last_track_index].className = "song";
 }
 function ChangeShuffleTracksState() {
     if (shuffle_state_is_on) {
         shuffle_state_is_on = false;
-        btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.classList.remove('active_state');
+        btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.classList.remove("active_state");
     }
     else {
         shuffle_state_is_on = true;
-        btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.classList.add('active_state');
+        btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.classList.add("active_state");
         repeat_state_is_on = true;
-        btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.classList.add('active_state');
+        btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.classList.add("active_state");
     }
 }
 function ChangeRepeatTracksState() {
     if (repeat_state_is_on) {
         repeat_state_is_on = false;
-        btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.classList.remove('active_state');
+        btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.classList.remove("active_state");
         shuffle_state_is_on = false;
-        btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.classList.remove('active_state');
+        btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.classList.remove("active_state");
     }
     else {
         repeat_state_is_on = true;
-        btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.classList.add('active_state');
+        btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.classList.add("active_state");
     }
 }
 function GetRandomInteger(minimum_number, maximum_number) {
@@ -80,17 +114,17 @@ function GetRandomTrackIndex() {
 }
 function PlayTrack() {
     var _a, _b;
-    main_controls === null || main_controls === void 0 ? void 0 : main_controls.classList.add('play');
-    (_a = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector('i.fas')) === null || _a === void 0 ? void 0 : _a.classList.remove('fa-play');
-    (_b = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector('i.fas')) === null || _b === void 0 ? void 0 : _b.classList.add('fa-pause');
+    main_controls === null || main_controls === void 0 ? void 0 : main_controls.classList.add("play");
+    (_a = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector("i.fas")) === null || _a === void 0 ? void 0 : _a.classList.remove("fa-play");
+    (_b = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector("i.fas")) === null || _b === void 0 ? void 0 : _b.classList.add("fa-pause");
     pause_icon.style.marginLeft = "0px";
     track === null || track === void 0 ? void 0 : track.play();
 }
 function PauseTrack() {
     var _a, _b;
-    main_controls === null || main_controls === void 0 ? void 0 : main_controls.classList.remove('play');
-    (_a = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector('i.fas')) === null || _a === void 0 ? void 0 : _a.classList.add('fa-play');
-    (_b = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector('i.fas')) === null || _b === void 0 ? void 0 : _b.classList.remove('fa-pause');
+    main_controls === null || main_controls === void 0 ? void 0 : main_controls.classList.remove("play");
+    (_a = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector("i.fas")) === null || _a === void 0 ? void 0 : _a.classList.add("fa-play");
+    (_b = btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.querySelector("i.fas")) === null || _b === void 0 ? void 0 : _b.classList.remove("fa-pause");
     CenterPlayButton();
     track === null || track === void 0 ? void 0 : track.pause();
 }
@@ -148,10 +182,10 @@ function SetTrackProgress(e) {
     var duration = track === null || track === void 0 ? void 0 : track.duration;
     track.some_time = (clickX / width) * duration;
 }
-btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.addEventListener('click', ChangeRepeatTracksState);
-btn_previous_track === null || btn_previous_track === void 0 ? void 0 : btn_previous_track.addEventListener('click', PreviousTrack);
-btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.addEventListener('click', function () {
-    var is_playing = main_controls.classList.contains('play');
+btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.addEventListener("click", ChangeRepeatTracksState);
+btn_previous_track === null || btn_previous_track === void 0 ? void 0 : btn_previous_track.addEventListener("click", PreviousTrack);
+btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.addEventListener("click", function () {
+    var is_playing = main_controls.classList.contains("play");
     if (is_playing) {
         PauseTrack();
     }
@@ -159,95 +193,102 @@ btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_
         PlayTrack();
     }
 });
-btn_next_track === null || btn_next_track === void 0 ? void 0 : btn_next_track.addEventListener('click', NextTrack);
-btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.addEventListener('click', ChangeShuffleTracksState);
-track === null || track === void 0 ? void 0 : track.addEventListener('timeupdate', UpdateTrackProgress); // <- THIS
-div_track_progress === null || div_track_progress === void 0 ? void 0 : div_track_progress.addEventListener('click', SetTrackProgress);
-track === null || track === void 0 ? void 0 : track.addEventListener('ended', NextTrack);
+btn_next_track === null || btn_next_track === void 0 ? void 0 : btn_next_track.addEventListener("click", NextTrack);
+btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuffle_tracks.addEventListener("click", ChangeShuffleTracksState);
+track === null || track === void 0 ? void 0 : track.addEventListener("timeupdate", UpdateTrackProgress); // <- THIS
+div_track_progress === null || div_track_progress === void 0 ? void 0 : div_track_progress.addEventListener("click", SetTrackProgress);
+track === null || track === void 0 ? void 0 : track.addEventListener("ended", NextTrack);
 // Click to play song (from playlist)
-var song_number = document.getElementById('song_number');
-var song_from_playlist = document.getElementById('song_from_playlist');
+var track_index_in_playlist = document.getElementById("track_index_in_playlist");
+var track_from_playlist = document.getElementById("track_from_playlist"); // <------
 function PlayTrackOnDemand() {
     last_track_index = track_index;
-    track_index = parseInt(song_number.innerHTML);
+    track_index = parseInt(track_index_in_playlist.innerHTML);
     track_index--;
     LoadTrack(tracks_list[track_index]);
     PlayTrack();
     ChangeSelectedSongStyle();
 }
+track_from_playlist === null || track_from_playlist === void 0 ? void 0 : track_from_playlist.addEventListener("click", PlayTrackOnDemand);
+track_from_playlist === null || track_from_playlist === void 0 ? void 0 : track_from_playlist.addEventListener("ended", NextTrack);
 // PLAYLIST
-var playlist = document.getElementById('div_playlist');
-var song_name = document.getElementById('playlist_track_name');
+var playlist = document.getElementById("div_playlist");
+// For changing first track's name and artist name
+var track_name = document.getElementById("track_name_in_playlist");
+var artist_name = document.getElementById("artist_name_in_playlist");
 function MakePlaylist() {
     for (var i = 0; i < total_number_of_tracks; i++) {
         if (i == 0) {
-            song_name.innerText = tracks_list[i];
-            song_number.innerHTML = (i + 1).toString();
+            track_name.innerText = tracks_list[i];
+            artist_name.innerHTML = "Windwalk";
+            track_index_in_playlist.innerHTML = (i + 1).toString();
         }
         else {
             // Main track div
-            var song_in_playlist = document.createElement('div');
-            playlist === null || playlist === void 0 ? void 0 : playlist.appendChild(song_in_playlist);
-            song_in_playlist.className = 'song';
+            var div_track = document.createElement("div");
+            playlist === null || playlist === void 0 ? void 0 : playlist.appendChild(div_track);
+            div_track.className = "div_track";
             // Div for main track info
-            var song_info = document.createElement('div');
-            song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(song_info);
-            song_info.className = 'song_info';
-            song_info.id = 'song_from_playlist';
-            // Track number + div
-            var div_for_song_number = document.createElement('div');
-            song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(div_for_song_number);
-            div_for_song_number.className = 'song_number';
-            var real_song_number = document.createElement('p');
-            div_for_song_number.appendChild(real_song_number);
-            real_song_number.id = 'song_number';
-            real_song_number.innerHTML = (i + 1).toString();
+            var div_track_info = document.createElement("div");
+            div_track === null || div_track === void 0 ? void 0 : div_track.appendChild(div_track_info);
+            div_track_info.className = "div_track_info";
+            div_track_info.id = "track_from_playlist";
+            // Track number div + track number
+            var div_for_track_index_in_playlist = document.createElement("div");
+            div_track_info === null || div_track_info === void 0 ? void 0 : div_track_info.appendChild(div_for_track_index_in_playlist);
+            div_for_track_index_in_playlist.className = "div_track_index";
+            var real_track_index_in_playlist = document.createElement("p");
+            div_for_track_index_in_playlist.appendChild(real_track_index_in_playlist);
+            real_track_index_in_playlist.id = "track_index_in_playlist";
+            real_track_index_in_playlist.innerHTML = (i + 1).toString();
             // Artist div + artist name
-            var div_for_main_info = document.createElement('div');
-            song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(div_for_main_info);
-            div_for_main_info.className = 'main_info';
-            var playlist_artist_name = document.createElement('div');
-            div_for_main_info === null || div_for_main_info === void 0 ? void 0 : div_for_main_info.appendChild(playlist_artist_name);
-            playlist_artist_name.className = 'playlist_artist_name';
-            var artist_name = document.createElement('p');
-            playlist_artist_name === null || playlist_artist_name === void 0 ? void 0 : playlist_artist_name.appendChild(artist_name);
-            artist_name.innerHTML = artist_list[i];
+            var div_main_info = document.createElement("div");
+            div_track_info === null || div_track_info === void 0 ? void 0 : div_track_info.appendChild(div_main_info);
+            div_main_info.className = "div_main_info";
+            var div_artist_name = document.createElement("div");
+            div_main_info === null || div_main_info === void 0 ? void 0 : div_main_info.appendChild(div_artist_name);
+            div_artist_name.className = "div_artist_name";
+            var artist_name_in_playlist = document.createElement("p");
+            div_artist_name === null || div_artist_name === void 0 ? void 0 : div_artist_name.appendChild(artist_name_in_playlist);
+            artist_name_in_playlist.innerHTML = "Windwalk";
+            artist_name_in_playlist.id = "artist_name_in_playlist";
             // Track div + track name
-            var playlist_track_name = document.createElement('div');
-            div_for_main_info === null || div_for_main_info === void 0 ? void 0 : div_for_main_info.appendChild(playlist_track_name);
-            playlist_track_name.className = 'playlist_track_name';
-            var track_name = document.createElement('p');
-            playlist_artist_name === null || playlist_artist_name === void 0 ? void 0 : playlist_artist_name.appendChild(track_name);
-            track_name.innerHTML = tracks_list[i];
-            // Div for links
-            var div_for_link_to_artist = document.createElement('div');
-            song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(div_for_link_to_artist);
-            div_for_link_to_artist.className = 'link_to_artist';
-            // Number of hearts
-            var div_number_of_hearts = document.createElement('div');
-            div_for_link_to_artist.appendChild(div_number_of_hearts);
-            div_number_of_hearts.className = 'div_hearts_number';
-            var actual_number_of_hearts = document.createElement('p');
-            div_number_of_hearts.appendChild(actual_number_of_hearts);
-            actual_number_of_hearts.innerHTML = hearts_list[i];
-            // Heart button
-            var heart_button = document.createElement('a');
-            div_for_link_to_artist === null || div_for_link_to_artist === void 0 ? void 0 : div_for_link_to_artist.appendChild(heart_button);
-            heart_button.className = 'heart';
-            var actual_heart = document.createElement('i');
-            heart_button.appendChild(actual_heart);
-            actual_heart.className = 'fas fa-heart';
+            var div_track_name = document.createElement("div");
+            div_main_info === null || div_main_info === void 0 ? void 0 : div_main_info.appendChild(div_track_name);
+            div_track_name.className = "div_track_name";
+            var track_name_in_playlist = document.createElement("p");
+            div_track_name === null || div_track_name === void 0 ? void 0 : div_track_name.appendChild(track_name_in_playlist);
+            track_name_in_playlist.innerHTML = tracks_list[i];
+            track_name_in_playlist.id = "track_name_in_playlist";
+            // Div for likes and downloads
+            var div_likes_and_downloads = document.createElement("div");
+            div_track === null || div_track === void 0 ? void 0 : div_track.appendChild(div_likes_and_downloads);
+            div_likes_and_downloads.className = "div_likes_and_downloads";
+            // Number of likes
+            var div_likes = document.createElement("div");
+            div_likes_and_downloads.appendChild(div_likes);
+            div_likes.className = "div_likes";
+            var number_of_likes = document.createElement("p");
+            div_likes.appendChild(number_of_likes);
+            number_of_likes.id = "likes_in_playlist";
+            var helper = 456;
+            number_of_likes.innerHTML = helper.toString();
+            // Like button
+            var btn_like = document.createElement("a");
+            div_likes_and_downloads === null || div_likes_and_downloads === void 0 ? void 0 : div_likes_and_downloads.appendChild(btn_like);
+            btn_like.className = "btn_like";
+            var like_icon = document.createElement("i");
+            btn_like.appendChild(like_icon);
+            like_icon.className = "fas fa-heart";
             // Artist page button
-            var actual_link_to_artist = document.createElement('a');
-            div_for_link_to_artist === null || div_for_link_to_artist === void 0 ? void 0 : div_for_link_to_artist.appendChild(actual_link_to_artist);
-            actual_link_to_artist.className = 'heart';
-            var go_to_link = document.createElement('i');
-            actual_link_to_artist.appendChild(go_to_link);
-            go_to_link.className = 'fas fa-share';
-            actual_link_to_artist.href = link_list[i];
+            var btn_download = document.createElement("a");
+            div_likes_and_downloads === null || div_likes_and_downloads === void 0 ? void 0 : div_likes_and_downloads.appendChild(btn_download);
+            btn_download.className = "btn_download";
+            var go_to_link = document.createElement("i");
+            btn_download.appendChild(go_to_link);
+            go_to_link.className = "fas fa-download";
+            btn_download.href = "#";
         }
     }
 }
 MakePlaylist();
-song_from_playlist === null || song_from_playlist === void 0 ? void 0 : song_from_playlist.addEventListener('click', PlayTrackOnDemand);
-song_from_playlist === null || song_from_playlist === void 0 ? void 0 : song_from_playlist.addEventListener('ended', NextTrack);

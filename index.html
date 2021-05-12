@@ -18,76 +18,78 @@
 </head>
 
 <body>
-        <div class="div_video">
-                <video src="Ocean.mp4" autoplay loop muted></video>
-        </div>
-
-        <div class="div_player_component">
-                <div class="div_current_track_playing_info">
-                        <p class="artist_name" id="artist_name_of_current_track_playing">Artist Name</p>
-                        <p class="track_name" id="track_name_of_current_track_playing">Track Name</p>
+        <div class="body">
+                <div class="div_video">
+                        <video src="Ocean.mp4" autoplay loop muted></video>
                 </div>
         
-                <div class="div_info_about_website">
-                        <button type="button" name="btn_info" id="btn_info" class="btn_info"><i class="fas fa-info-circle"></i></button>
-                        <div class="div_playlist_heading">
-                                <p>Playlist</p>
+                <div class="div_player_component">
+                        <div class="div_current_track_playing_info">
+                                <p class="artist_name" id="artist_name_of_current_track_playing">Artist Name</p>
+                                <p class="track_name" id="track_name_of_current_track_playing">Track Name</p>
                         </div>
-                </div>
-        
-
-
-
-                <audio src="" id="track"></audio>
-        
-                <img src="images/Night Sky.jpg" class="background_image">
-        
-
-
                 
-                <div class="div_playlist" id="div_playlist">
-                        <div class="div_track">
-                                <div class="div_track_info" id="track_from_playlist">
-                                        <div class="div_track_index">
-                                                <p id="track_index_in_playlist">123.</p>
-                                        </div>
-                                        <div class="div_main_info">
-                                                <div class="div_artist_name">
-                                                        <p id="artist_name_in_playlist">Artist Name</p>
-                                                </div>
-                                                <div class="div_track_name">
-                                                        <p id="track_name_in_playlist">Track Name</p>
-                                                </div>
-                                        </div>
-                                </div>
-        
-                                <div class="div_likes_and_downloads">
-                                        <div class="div_likes">
-                                                <p id="likes_in_playlist">456</p>
-                                        </div>
-                                        <a href="#" class="btn_like"><i class="fas fa-heart"></i></a>
-                                        <a href="#" class="btn_download"><i class="fas fa-download"></i></a>
+                        <div class="div_info_about_website">
+                                <button type="button" name="btn_info" id="btn_info" class="btn_info"><i class="fas fa-info-circle"></i></button>
+                                <div class="div_playlist_heading">
+                                        <p>Playlist</p>
                                 </div>
                         </div>
-                </div> 
+                
         
         
         
+                        <audio src="" id="track"></audio>
+                
+                        <img src="images/Night Sky.jpg" class="background_image">
+                
         
-                <div class="div_track_progress" id="div_track_progress">
-                        <div class="progress_bar" id="progress_bar"></div>
+        
+                        
+                        <div class="div_playlist" id="div_playlist">
+                                <div class="div_track">
+                                        <div class="div_track_info" id="track_from_playlist">
+                                                <div class="div_track_index">
+                                                        <p id="track_index_in_playlist">123.</p>
+                                                </div>
+                                                <div class="div_main_info">
+                                                        <div class="div_artist_name">
+                                                                <p id="artist_name_in_playlist">Artist Name</p>
+                                                        </div>
+                                                        <div class="div_track_name">
+                                                                <p id="track_name_in_playlist">Track Name</p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                
+                                        <div class="div_likes_and_downloads">
+                                                <div class="div_likes">
+                                                        <p id="likes_in_playlist">456</p>
+                                                </div>
+                                                <a href="#" class="btn_like"><i class="fas fa-heart"></i></a>
+                                                <a href="#" class="btn_download"><i class="fas fa-download"></i></a>
+                                        </div>
+                                </div>
+                        </div> 
+                
+                
+                
+                
+                        <div class="div_track_progress" id="div_track_progress">
+                                <div class="progress_bar" id="progress_bar"></div>
+                        </div>
+                
+                        <div class="div_main_controls" id="main_controls">
+                                <button type="button" name="btn_repeat_track" id="btn_repeat_track" class="btn_repeat_track"><i class="fas fa-redo"></i></button>
+                
+                                <button type="button" name="btn_previous_track" id="btn_previous_track"><i class="fas fa-step-backward"></i></button>
+                                <button type="button" name="btn_play_pause_track" id="btn_play_pause_track" class="button_play"><i class="fas fa-play" id="pause_icon"></i></button>
+                                <button type="button" name="btn_next_track" id="btn_next_track"><i class="fas fa-step-forward"></i></button>
+                
+                                <button type="button" name="shuffle_track" id="shuffle_track" class="shuffle_track"><i class="fas fa-random"></i></button>
+                        </div>
+                        <div class="empty_space"></div>
                 </div>
-        
-                <div class="div_main_controls" id="main_controls">
-                        <button type="button" name="btn_repeat_track" id="btn_repeat_track" class="btn_repeat_track"><i class="fas fa-redo"></i></button>
-        
-                        <button type="button" name="btn_previous_track" id="btn_previous_track"><i class="fas fa-step-backward"></i></button>
-                        <button type="button" name="btn_play_pause_track" id="btn_play_pause_track" class="button_play"><i class="fas fa-play" id="pause_icon"></i></button>
-                        <button type="button" name="btn_next_track" id="btn_next_track"><i class="fas fa-step-forward"></i></button>
-        
-                        <button type="button" name="shuffle_track" id="shuffle_track" class="shuffle_track"><i class="fas fa-random"></i></button>
-                </div>
-                <div class="empty_space"></div>
         </div>
 
 
@@ -96,7 +98,7 @@
         <script defer src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script defer src="js/plugins.js"></script>
         <script defer src="js/main.js"></script>
-        <!-- <script defer src="js/my_js/player.js"></script> -->
+        <script defer src="js/my_js/player.js"></script>
 </body>
 
 </html>

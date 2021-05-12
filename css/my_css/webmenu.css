@@ -102,4 +102,14 @@
 .empty_space {
   height: 89px; }
 
+@media only screen and (min-device-width: 1024px) {
+  .div_current_track_playing_info {
+    position: unset; }
+
+  .div_track_progress {
+    position: unset; }
+
+  .div_main_controls {
+    position: unset; } }
+
 /*# sourceMappingURL=webmenu.css.map */

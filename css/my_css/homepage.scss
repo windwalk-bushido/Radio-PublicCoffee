@@ -26,282 +26,317 @@ html
 
 
 
-.div_video
+.body
 {
         @extend %flexbox;
 
-        background-color: $grey;
-
-        video
-        {
-                width: 100%;
-
-                margin-top: 80px;
-        }
-}
-
-
-
-
-.div_player_component
-{
-        @extend %flexbox;
-
-        .div_info_about_website
+        .div_video
         {
                 @extend %flexbox;
-
-                .btn_info,
-                i
+        
+                video
                 {
-                        @extend %flexbox;
-                        
-                        width: 1.4rem;
-                        height: 1.4rem;
-
-                        border-style: none;
-                        border-radius: 100%;
-
-                        font-size: 1.6rem;
-
-                        cursor: pointer;
-                }
-
-                i:hover
-                {
-                        @extend %gradient;
-                        color: $white;
-
-                        transition: 100ms all;
-                }
-
-                i:active
-                {
-                        @extend %gradient;
-                        color: $white;
-
-                        transition: 100ms all;
-                }
-
-                .btn_info
-                {
-                        position: relative;
-
-                        margin-top: -0.7rem;
-                }
-
-
-
-
-                .div_playlist_heading
-                {
-                        @extend %flexbox;
-                        align-content: flex-end;
-
-                        height: 4rem;
-
-                        border-bottom: 2px solid $white;
-
-                        p
-                        {
-                                margin: 0px;
-                                margin-bottom: 0.25rem;
-                                padding: 0px;
-
-                                font-size: 1.5rem;
-                        }
+                        width: 100%;
+        
+                        margin-top: 80px;
                 }
         }
-
-
-
-
-        .background_image
-        {
-                top: 0;
-                left: 0;
-                right: 0;
-                position: fixed;
-
-                filter: blur(4px);
-
-                z-index: -10;
-        }
-
-
-
-
-        .div_playlist
+        
+        
+        
+        
+        .div_player_component
         {
                 @extend %flexbox;
-
-                .div_track
+        
+                .div_info_about_website
                 {
                         @extend %flexbox;
-                        justify-content: space-between;
-
-                        border-bottom: 2px solid $white;
-
-                        cursor: pointer;
-
-                        .div_track_info
+        
+                        .btn_info,
+                        i
                         {
                                 @extend %flexbox;
-                                justify-content: flex-start;
-
-                                min-width: 196px;
-                                max-width: 60%;
-
-                                padding-top: 0.6rem;
-                                padding-bottom: 0.4rem;
-
-                                .div_track_index
+                                
+                                width: 1.4rem;
+                                height: 1.4rem;
+        
+                                border-style: none;
+                                border-radius: 100%;
+        
+                                font-size: 1.6rem;
+        
+                                cursor: pointer;
+                        }
+        
+                        i:hover
+                        {
+                                @extend %gradient;
+                                color: $white;
+        
+                                transition: 100ms all;
+                        }
+        
+                        i:active
+                        {
+                                @extend %gradient;
+                                color: $white;
+        
+                                transition: 100ms all;
+                        }
+        
+                        .btn_info
+                        {
+                                position: relative;
+        
+                                margin-top: -0.7rem;
+                        }
+        
+        
+        
+        
+                        .div_playlist_heading
+                        {
+                                @extend %flexbox;
+                                align-content: flex-end;
+        
+                                height: 4rem;
+        
+                                border-bottom: 2px solid $white;
+        
+                                p
                                 {
-                                        min-width: 32px;
-                                        max-width: 20%;
-
-                                        p
-                                        {
-                                                margin-left: 0.5rem;
-                                        }
+                                        margin: 0px;
+                                        margin-bottom: 0.25rem;
+                                        padding: 0px;
+        
+                                        font-size: 1.5rem;
                                 }
-
-                                .div_main_info
+                        }
+                }
+        
+        
+        
+        
+                .background_image
+                {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        position: fixed;
+        
+                        filter: blur(4px);
+        
+                        z-index: -10;
+                }
+        
+        
+        
+        
+                .div_playlist
+                {
+                        @extend %flexbox;
+        
+                        .div_track
+                        {
+                                @extend %flexbox;
+                                justify-content: space-between;
+        
+                                border-bottom: 2px solid $white;
+        
+                                cursor: pointer;
+        
+                                .div_track_info
                                 {
                                         @extend %flexbox;
-
-                                        min-width: 154px;
-                                        max-width: 70%;
-
-                                        .div_artist_name,
-                                        .div_track_name
+                                        justify-content: flex-start;
+        
+                                        min-width: 196px;
+                                        max-width: 60%;
+        
+                                        padding-top: 0.6rem;
+                                        padding-bottom: 0.4rem;
+        
+                                        .div_track_index
                                         {
-                                                width: 100%;
-
+                                                min-width: 32px;
+                                                max-width: 20%;
+        
                                                 p
                                                 {
                                                         margin-left: 0.5rem;
                                                 }
                                         }
-
-                                        .div_track_name
+        
+                                        .div_main_info
                                         {
-                                                font-weight: bold;
+                                                @extend %flexbox;
+        
+                                                min-width: 154px;
+                                                max-width: 70%;
+        
+                                                .div_artist_name,
+                                                .div_track_name
+                                                {
+                                                        width: 100%;
+        
+                                                        p
+                                                        {
+                                                                margin-left: 0.5rem;
+                                                        }
+                                                }
+        
+                                                .div_track_name
+                                                {
+                                                        font-weight: bold;
+                                                }
                                         }
                                 }
-                        }
-
-                        .div_likes_and_downloads
-                        {
-                                @extend %flexbox;
-                                justify-content: flex-end;
-
-                                min-width: 124px;
-                                max-width: 20%;
-
-                                .div_likes
-                                {
-                                        p
-                                        {
-                                                margin-top: 4px;
-                                                margin-right: 0.5rem;
-
-                                                font-weight: bold;
-                                        }
-                                }
-
-                                a,
-                                a:visited
+        
+                                .div_likes_and_downloads
                                 {
                                         @extend %flexbox;
-
-                                        width: 2rem;
-                                        height: 2rem;
-
-                                        margin-right: 0.5rem;
-
-                                        border-radius: 2rem;
-
-                                        background-color: $dark-grey;
-                                        color: $white;
-
-                                        text-decoration: none;
-                                }
-
-                                a:visited
-                                {
-                                        transition: 100ms all;
-                                }
-
-                                a:hover
-                                {
-                                        @extend %gradient;
-                                        color: $white;
-
-                                        transition: 100ms all;
-                                }
-
-                                a:active
-                                {
-                                        @extend %gradient;
-                                        color: $white;
-
-                                        transition: 100ms all;
+                                        justify-content: flex-end;
+        
+                                        min-width: 124px;
+                                        max-width: 20%;
+        
+                                        .div_likes
+                                        {
+                                                p
+                                                {
+                                                        margin-top: 4px;
+                                                        margin-right: 0.5rem;
+        
+                                                        font-weight: bold;
+                                                }
+                                        }
+        
+                                        a,
+                                        a:visited
+                                        {
+                                                @extend %flexbox;
+        
+                                                width: 2rem;
+                                                height: 2rem;
+        
+                                                margin-right: 0.5rem;
+        
+                                                border-radius: 2rem;
+        
+                                                background-color: $dark-grey;
+                                                color: $white;
+        
+                                                text-decoration: none;
+                                        }
+        
+                                        a:visited
+                                        {
+                                                transition: 100ms all;
+                                        }
+        
+                                        a:hover
+                                        {
+                                                @extend %gradient;
+                                                color: $white;
+        
+                                                transition: 100ms all;
+                                        }
+        
+                                        a:active
+                                        {
+                                                @extend %gradient;
+                                                color: $white;
+        
+                                                transition: 100ms all;
+                                        }
                                 }
                         }
-                }
-
-                .div_track:hover
-                {
-                        background-color: $white;
-                        color: $grey;
-
-                        transition: 100ms all;
-                }
-
-
-
-
-                .selected_track
-                {
-                        @extend %anti_gradient;
-                        color: $white;
-
-                        .div_likes_and_downloads
+        
+                        .div_track:hover
                         {
-                                a,
+                                background-color: $white;
+                                color: $grey;
+        
+                                transition: 100ms all;
+                        }
+        
+        
+        
+        
+                        .selected_track
+                        {
+                                @extend %anti_gradient;
+                                color: $white;
+        
+                                .div_likes_and_downloads
+                                {
+                                        a,
+                                        a:hover,
+                                        a:active
+                                        {
+                                                background-color: $white;
+                                                color: $grey;
+        
+                                                transition: 100ms all;
+                                        }
+                                }
+                        }
+        
+                        .selected_track:hover
+                        {
+                                @extend %anti_gradient;
+                                color: $white;
+        
+                                transition: 100ms all;
+        
                                 a:hover,
                                 a:active
                                 {
+                                        background: $white;
                                         background-color: $white;
                                         color: $grey;
-
+                        
                                         transition: 100ms all;
                                 }
                         }
                 }
+        }  
+}
 
-                .selected_track:hover
-                {
-                        @extend %anti_gradient;
-                        color: $white;
 
-                        transition: 100ms all;
 
-                        a:hover,
-                        a:active
-                        {
-                                background: $white;
-                                background-color: $white;
-                                color: $grey;
+
+@media only screen and (min-device-width: 1024px) 
+{
+        .body
+        {
+                /*
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 320px;
+                grid-template-rows: 100%;
+                grid-template-areas: 
+                "video video video video video video video video video player";
                 
-                                transition: 100ms all;
-                        }
+                justify-items: stretch;
+                justify-content: stretch;
+                align-items: flex-start;
+                align-content: stretch;
+                */
+
+                .div_video
+                {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        position: fixed;
+
+                        aspect-ratio: 16/9;
+                }
+
+                .div_player_component
+                {
+                        //
                 }
         }
 }
-
-/* @media only screen and (min-device-width: 1024px) 
-{
-        
-} */
