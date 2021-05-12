@@ -3,8 +3,8 @@
 
 <head>
         <meta charset="utf-8">
-        <title>Radio Public Coffee</title>
-        <meta name="description" content="Listen to royalty free tracks from around the world!">
+        <title>Windwalk's Boombox</title>
+        <meta name="description" content="Listen to Windwalk's personal beats. Genre: Trap, Hip hop.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="cassette.svg">
@@ -18,18 +18,20 @@
 </head>
 
 <body>
-        <div class="audio_info">
-                <p class="artist_name" id="artist_name">Artist Name</p>
-                <p class="track_name" id="track_name">Track Name</p>
+        <div class="div_current_track_playing_info">
+                <p class="artist_name" id="artist_name_of_current_track_playing">Artist Name</p>
+                <p class="track_name" id="track_name_of_current_track_playing">Track Name</p>
         </div>
 
         <div class="div_video">
                 <video src="Ocean.mp4" autoplay loop muted></video>
         </div>
 
-        <div class="info_about_project">
+        <img src="images/Night Sky.jpg" class="background_image">
+
+        <div class="div_info_about_website">
                 <button type="button" name="btn_info" id="btn_info" class="btn_info"><i class="fas fa-info-circle"></i></button>
-                <div class="playlist_heading">
+                <div class="div_playlist_heading">
                         <p>Playlist</p>
                 </div>
         </div>
@@ -40,24 +42,27 @@
 
         
         <div class="div_playlist" id="div_playlist">
-                <div class="song" id="song_from_playlist">
-                        <div class="song_info">
-                                <div class="song_number">
-                                        <p id='song_number'>1.</p>
+                <div class="div_track">
+                        <div class="div_track_info" id="track_from_playlist">
+                                <div class="div_track_index">
+                                        <p id="track_index_in_playlist">123.</p>
                                 </div>
-                                <div class="main_info">
-                                        <div class="playlist_artist_name">
-                                                <p>Artist Name</p>
+                                <div class="div_main_info">
+                                        <div class="div_artist_name">
+                                                <p id="artist_name_in_playlist">Artist Name</p>
                                         </div>
-                                        <div class="playlist_track_name">
-                                                <p id="playlist_track_name">Track Name</p>
+                                        <div class="div_track_name">
+                                                <p id="track_name_in_playlist">Track Name</p>
                                         </div>
                                 </div>
                         </div>
 
-                        <div class="link_to_artist">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <a href="#">Artist Page</a>
+                        <div class="div_likes_and_downloads">
+                                <div class="div_likes">
+                                        <p id="likes_in_playlist">456</p>
+                                </div>
+                                <a href="#" class="btn_like"><i class="fas fa-heart"></i></a>
+                                <a href="#" class="btn_download"><i class="fas fa-download"></i></a>
                         </div>
                 </div>
         </div> 
@@ -66,17 +71,17 @@
 
 
         <div class="div_track_progress" id="div_track_progress">
-                <div class="progress" id="progress"></div>
+                <div class="progress_bar" id="progress_bar"></div>
         </div>
 
-        <div class="main_controls" id="main_controls">
-                <button type="button" name="btn_repeat" id="repeat_track" class="btn_repeat"><i class="fas fa-redo"></i></button>
+        <div class="div_main_controls" id="main_controls">
+                <button type="button" name="btn_repeat_track" id="btn_repeat_track" class="btn_repeat_track"><i class="fas fa-redo"></i></button>
 
-                <button type="button" name="btn_previous_track" id="previous_track"><i class="fas fa-step-backward"></i></button>
-                <button type="button" name="btn_play_pause_track" id="play_pause_track" class="button_play"><i class="fas fa-play" id="pause_icon"></i></button>
-                <button type="button" name="btn_next_track" id="next_track"><i class="fas fa-step-forward"></i></button>
+                <button type="button" name="btn_previous_track" id="btn_previous_track"><i class="fas fa-step-backward"></i></button>
+                <button type="button" name="btn_play_pause_track" id="btn_play_pause_track" class="button_play"><i class="fas fa-play" id="pause_icon"></i></button>
+                <button type="button" name="btn_next_track" id="btn_next_track"><i class="fas fa-step-forward"></i></button>
 
-                <button type="button" name="btn_shuffle" id="shuffle_track" class="btn_shuffle"><i class="fas fa-random"></i></button>
+                <button type="button" name="shuffle_track" id="shuffle_track" class="shuffle_track"><i class="fas fa-random"></i></button>
         </div>
         <div class="empty_space"></div>
 
@@ -84,7 +89,7 @@
         <script defer src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script defer src="js/plugins.js"></script>
         <script defer src="js/main.js"></script>
-        <script defer src="js/my_js/player.js"></script>
+        <!-- <script defer src="js/my_js/player.js"></script> -->
 </body>
 
 </html>

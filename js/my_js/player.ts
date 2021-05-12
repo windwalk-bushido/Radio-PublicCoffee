@@ -17,28 +17,47 @@ const track_name = document.getElementById('track_name');
 var pause_icon = document.getElementById('pause_icon');
 
 
+const obj_tracks_xhr = new XMLHttpRequest();
+
+var json_object = "";
+
+obj_tracks_xhr.onload = function()
+{
+        json_object = JSON.parse(this.responseText);
+        console.log(json_object);
+}
+
+obj_tracks_xhr.open('get', 'tracks.json');
+obj_tracks_xhr.send();
 
 
-// Make function to scan the folder for song names and add them into array. Possible via JSON?
-var tracks_list =
-        [
-                'One',
-                'Two',
-                'Three',
-                'Four',
-                'Five',
-                'Six',
-                'Seven',
-                'Eight',
-                'Nine',
-                'Ten',
-                'Eleven',
-                'Twelve',
-        ];
+// ---------------------------------------------------------------- //
+
+
+var json_total_tracks = json_object.total_tracks;
+
+var artist_list: string | any[] = [];
+var tracks_list: string | any[] = [];
+var link_list: string | any[] = [];
+var hearts_list: string | number[] = [];
+
+
+for(var i = 0; i < json_total_tracks; i++)
+{
+        artist_list[i] = json_object.tracks[i].artist;
+        tracks_list[i] = json_object.tracks[i].name;
+        link_list[i] = json_object.tracks[i].link;
+        hearts_list[i] = json_object.tracks[i].hearts;
+}
+
+
+
+
 let shuffle_state_is_on = false;
 let repeat_state_is_on = false;
 let total_number_of_tracks = tracks_list.length;
 let track_index = 0;
+let last_track_index = track_index;
 
 
 
@@ -59,6 +78,12 @@ CenterPlayButton();
 
 
 
+
+function ChangeSelectedSongStyle()
+{
+        //song_from_playlist[track_index].className = 'song selected_song';
+        //song_from_playlist[last_track_index].className = 'song';
+}
 
 function ChangeShuffleTracksState()
 {
@@ -147,25 +172,28 @@ function PreviousTrack()
         {
                 if (track_index > -1)
                 {
+                        last_track_index = track_index;
                         track_index--;
                 };
 
                 if (track_index < 0 && repeat_state_is_on == true)
                 {
+                        last_track_index = track_index;
                         track_index = tracks_list.length - 1;
                 }
         }
         else
         {
+                last_track_index = track_index;
                 track_index = GetRandomTrackIndex();
         }
+
 
         if (track_index > -1)
         {
                 LoadTrack(tracks_list[track_index]);
                 PlayTrack();
-
-                //song_from_playlist[track_index].className = 'song selected_song';
+                ChangeSelectedSongStyle();
         }
 }
 
@@ -175,16 +203,19 @@ function NextTrack()
         {
                 if (track_index < total_number_of_tracks)
                 {
+                        last_track_index = track_index;
                         track_index++;
                 }
 
                 if (track_index > tracks_list.length - 1 && repeat_state_is_on == true)
                 {
+                        last_track_index = track_index;
                         track_index = 0;
                 }
         }
         else
         {
+                last_track_index = track_index;
                 track_index = GetRandomTrackIndex();
         }
 
@@ -193,6 +224,7 @@ function NextTrack()
         {
                 LoadTrack(tracks_list[track_index]);
                 PlayTrack();
+                ChangeSelectedSongStyle();
         }
 }
 
@@ -255,18 +287,19 @@ const song_from_playlist = document.getElementById('song_from_playlist');
 
 function PlayTrackOnDemand()
 {
+        last_track_index = track_index;
         track_index = parseInt(song_number.innerHTML);
         track_index--;
 
         LoadTrack(tracks_list[track_index]);
         PlayTrack();
+        ChangeSelectedSongStyle();
 }
 
 
 
 
 // PLAYLIST
-
 const playlist = document.getElementById('div_playlist');
 const song_name = document.getElementById('playlist_track_name');
 
@@ -288,13 +321,13 @@ function MakePlaylist()
                         var song_in_playlist = document.createElement('div');
                         playlist?.appendChild(song_in_playlist);
                         song_in_playlist.className = 'song';
-                        song_in_playlist.id = 'song_from_playlist';
 
 
                         // Div for main track info
                         var song_info = document.createElement('div');
                         song_in_playlist?.appendChild(song_info);
                         song_info.className = 'song_info';
+                        song_info.id = 'song_from_playlist';
 
 
                         // Track number + div
@@ -319,7 +352,7 @@ function MakePlaylist()
 
                         var artist_name = document.createElement('p');
                         playlist_artist_name?.appendChild(artist_name);
-                        artist_name.innerHTML = 'Windwalk';
+                        artist_name.innerHTML = artist_list[i];
 
 
                         // Track div + track name
@@ -330,7 +363,6 @@ function MakePlaylist()
                         var track_name = document.createElement('p');
                         playlist_artist_name?.appendChild(track_name);
                         track_name.innerHTML = tracks_list[i];
-                        track_name.style.fontWeight = 'bold';
 
 
                         // Div for links
@@ -338,6 +370,15 @@ function MakePlaylist()
                         song_in_playlist?.appendChild(div_for_link_to_artist);
                         div_for_link_to_artist.className = 'link_to_artist';
 
+
+                        // Number of hearts
+                        var div_number_of_hearts = document.createElement('div');
+                        div_for_link_to_artist.appendChild(div_number_of_hearts);
+                        div_number_of_hearts.className = 'div_hearts_number';
+                        var actual_number_of_hearts = document.createElement('p');
+                        div_number_of_hearts.appendChild(actual_number_of_hearts);
+                        var helper = hearts_list[i];
+                        actual_number_of_hearts.innerHTML = helper.toString();
 
                         // Heart button
                         var heart_button = document.createElement('a');
@@ -350,8 +391,11 @@ function MakePlaylist()
                         // Artist page button
                         var actual_link_to_artist = document.createElement('a');
                         div_for_link_to_artist?.appendChild(actual_link_to_artist);
-                        actual_link_to_artist.innerHTML = 'Artist Page';
-                        actual_link_to_artist.href = '#';
+                        actual_link_to_artist.className = 'heart';
+                        var go_to_link = document.createElement('i');
+                        actual_link_to_artist.appendChild(go_to_link);
+                        go_to_link.className = 'fas fa-share';
+                        actual_link_to_artist.href = link_list[i];
                 }
         }
 }

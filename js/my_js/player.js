@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var main_controls = document.getElementById('main_controls');
 var btn_repeat_tracks = document.getElementById('repeat_track');
 var btn_previous_track = document.getElementById('previous_track');
@@ -9,25 +11,25 @@ var div_track_progress = document.getElementById('div_track_progress');
 var progress_bar = document.getElementById('progress');
 var track_name = document.getElementById('track_name');
 var pause_icon = document.getElementById('pause_icon');
-// Make function to scan the folder for song names and add them into array. Possible via JSON?
-var tracks_list = [
-    'One',
-    'Two',
-    'Three',
-    'Four',
-    'Five',
-    'Six',
-    'Seven',
-    'Eight',
-    'Nine',
-    'Ten',
-    'Eleven',
-    'Twelve',
-];
+var tracks_json_1 = require("tracks.json"); // <--- Use some fix to fetch JSON file and pass it into object.
+// ---------------------------------------------------------------- //
+var json_object = JSON.parse(tracks_json_1["default"]);
+var json_total_tracks = json_object.total_tracks;
+var artist_list = [];
+var tracks_list = [];
+var link_list = [];
+var hearts_list = [];
+for (var i = 0; i < json_total_tracks; i++) {
+    artist_list[i] = json_object.tracks[i].artist;
+    tracks_list[i] = json_object.tracks[i].name;
+    link_list[i] = json_object.tracks[i].link;
+    hearts_list[i] = json_object.tracks[i].hearts;
+}
 var shuffle_state_is_on = false;
 var repeat_state_is_on = false;
 var total_number_of_tracks = tracks_list.length;
 var track_index = 0;
+var last_track_index = track_index;
 function CenterPlayButton() {
     pause_icon.style.marginLeft = "4px";
 }
@@ -37,6 +39,10 @@ function LoadTrack(tracks_list) {
 }
 LoadTrack(tracks_list[track_index]);
 CenterPlayButton();
+function ChangeSelectedSongStyle() {
+    //song_from_playlist[track_index].className = 'song selected_song';
+    //song_from_playlist[last_track_index].className = 'song';
+}
 function ChangeShuffleTracksState() {
     if (shuffle_state_is_on) {
         shuffle_state_is_on = false;
@@ -91,37 +97,44 @@ function PauseTrack() {
 function PreviousTrack() {
     if (shuffle_state_is_on == false) {
         if (track_index > -1) {
+            last_track_index = track_index;
             track_index--;
         }
         ;
         if (track_index < 0 && repeat_state_is_on == true) {
+            last_track_index = track_index;
             track_index = tracks_list.length - 1;
         }
     }
     else {
+        last_track_index = track_index;
         track_index = GetRandomTrackIndex();
     }
     if (track_index > -1) {
         LoadTrack(tracks_list[track_index]);
         PlayTrack();
-        //song_from_playlist[track_index].className = 'song selected_song';
+        ChangeSelectedSongStyle();
     }
 }
 function NextTrack() {
     if (shuffle_state_is_on == false) {
         if (track_index < total_number_of_tracks) {
+            last_track_index = track_index;
             track_index++;
         }
         if (track_index > tracks_list.length - 1 && repeat_state_is_on == true) {
+            last_track_index = track_index;
             track_index = 0;
         }
     }
     else {
+        last_track_index = track_index;
         track_index = GetRandomTrackIndex();
     }
     if (track_index < total_number_of_tracks) {
         LoadTrack(tracks_list[track_index]);
         PlayTrack();
+        ChangeSelectedSongStyle();
     }
 }
 function UpdateTrackProgress(e) {
@@ -155,10 +168,12 @@ track === null || track === void 0 ? void 0 : track.addEventListener('ended', Ne
 var song_number = document.getElementById('song_number');
 var song_from_playlist = document.getElementById('song_from_playlist');
 function PlayTrackOnDemand() {
+    last_track_index = track_index;
     track_index = parseInt(song_number.innerHTML);
     track_index--;
     LoadTrack(tracks_list[track_index]);
     PlayTrack();
+    ChangeSelectedSongStyle();
 }
 // PLAYLIST
 var playlist = document.getElementById('div_playlist');
@@ -174,11 +189,11 @@ function MakePlaylist() {
             var song_in_playlist = document.createElement('div');
             playlist === null || playlist === void 0 ? void 0 : playlist.appendChild(song_in_playlist);
             song_in_playlist.className = 'song';
-            song_in_playlist.id = 'song_from_playlist';
             // Div for main track info
             var song_info = document.createElement('div');
             song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(song_info);
             song_info.className = 'song_info';
+            song_info.id = 'song_from_playlist';
             // Track number + div
             var div_for_song_number = document.createElement('div');
             song_info === null || song_info === void 0 ? void 0 : song_info.appendChild(div_for_song_number);
@@ -196,7 +211,7 @@ function MakePlaylist() {
             playlist_artist_name.className = 'playlist_artist_name';
             var artist_name = document.createElement('p');
             playlist_artist_name === null || playlist_artist_name === void 0 ? void 0 : playlist_artist_name.appendChild(artist_name);
-            artist_name.innerHTML = 'Windwalk';
+            artist_name.innerHTML = artist_list[i];
             // Track div + track name
             var playlist_track_name = document.createElement('div');
             div_for_main_info === null || div_for_main_info === void 0 ? void 0 : div_for_main_info.appendChild(playlist_track_name);
@@ -204,11 +219,17 @@ function MakePlaylist() {
             var track_name = document.createElement('p');
             playlist_artist_name === null || playlist_artist_name === void 0 ? void 0 : playlist_artist_name.appendChild(track_name);
             track_name.innerHTML = tracks_list[i];
-            track_name.style.fontWeight = 'bold';
             // Div for links
             var div_for_link_to_artist = document.createElement('div');
             song_in_playlist === null || song_in_playlist === void 0 ? void 0 : song_in_playlist.appendChild(div_for_link_to_artist);
             div_for_link_to_artist.className = 'link_to_artist';
+            // Number of hearts
+            var div_number_of_hearts = document.createElement('div');
+            div_for_link_to_artist.appendChild(div_number_of_hearts);
+            div_number_of_hearts.className = 'div_hearts_number';
+            var actual_number_of_hearts = document.createElement('p');
+            div_number_of_hearts.appendChild(actual_number_of_hearts);
+            actual_number_of_hearts.innerHTML = hearts_list[i];
             // Heart button
             var heart_button = document.createElement('a');
             div_for_link_to_artist === null || div_for_link_to_artist === void 0 ? void 0 : div_for_link_to_artist.appendChild(heart_button);
@@ -219,8 +240,11 @@ function MakePlaylist() {
             // Artist page button
             var actual_link_to_artist = document.createElement('a');
             div_for_link_to_artist === null || div_for_link_to_artist === void 0 ? void 0 : div_for_link_to_artist.appendChild(actual_link_to_artist);
-            actual_link_to_artist.innerHTML = 'Artist Page';
-            actual_link_to_artist.href = '#';
+            actual_link_to_artist.className = 'heart';
+            var go_to_link = document.createElement('i');
+            actual_link_to_artist.appendChild(go_to_link);
+            go_to_link.className = 'fas fa-share';
+            actual_link_to_artist.href = link_list[i];
         }
     }
 }

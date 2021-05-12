@@ -1,5 +1,7 @@
 @import "mixins";
 
+
+// min. viewport = 320 x 480
 html
 {
         font-size: 16px;
@@ -35,8 +37,6 @@ html
                 width: 100%;
 
                 margin-top: 80px;
-
-                cursor: not-allowed;
         }
 }
 
@@ -44,7 +44,7 @@ html
 
 
 
-.info_about_project
+.div_info_about_website
 {
         @extend %flexbox;
 
@@ -87,14 +87,14 @@ html
                 margin-top: -0.7rem;
         }
 
-        .playlist_heading
+        .div_playlist_heading
         {
                 @extend %flexbox;
                 align-content: flex-end;
 
                 height: 4rem;
 
-                border-bottom: 2px solid $grey;
+                border-bottom: 2px solid $white;
 
                 p
                 {
@@ -110,83 +110,109 @@ html
 
 
 
+.background_image
+{
+        top: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+
+        filter: blur(4px);
+
+        z-index: -10;
+}
+
+
+
+
 .div_playlist
 {
         @extend %flexbox;
 
-        .song
+        .div_track
         {
                 @extend %flexbox;
+                justify-content: space-between;
 
-                border-bottom: 2px solid $grey;
+                border-bottom: 2px solid $white;
 
                 cursor: pointer;
 
-                .song_info
+                .div_track_info
                 {
                         @extend %flexbox;
-                        align-content: flex-start;
+                        justify-content: flex-start;
 
-                        width: 60%;
-                        height: 100%;
+                        min-width: 196px;
+                        max-width: 60%;
 
                         padding-top: 0.6rem;
                         padding-bottom: 0.4rem;
 
-                        .song_number 
+                        .div_track_index
                         {
-                                width: 10%;
-                                height: 100%;
+                                min-width: 32px;
+                                max-width: 20%;
 
                                 p
                                 {
-                                        margin-left: 1.2rem;
-                                        font-weight: bold;
+                                        margin-left: 0.5rem;
                                 }
                         }
 
-                        .main_info
+                        .div_main_info
                         {
-                                width: 90%;
-                                height: 100%;
+                                @extend %flexbox;
 
-                                .playlist_artist_name,
-                                .playlist_track_name
+                                min-width: 154px;
+                                max-width: 70%;
+
+                                .div_artist_name,
+                                .div_track_name
                                 {
                                         width: 100%;
 
                                         p
                                         {
-                                                margin: 0px;
-                                                margin-left: 1.5rem;
-                                                padding: 0px;
+                                                margin-left: 0.5rem;
                                         }
                                 }
 
-                                .playlist_track_name
+                                .div_track_name
                                 {
                                         font-weight: bold;
                                 }
                         }
                 }
 
-                .link_to_artist
+                .div_likes_and_downloads
                 {
                         @extend %flexbox;
-                        align-content: flex-end;
+                        justify-content: flex-end;
 
-                        width: 40%;
-                        height: 100%;
+                        min-width: 124px;
+                        max-width: 20%;
+
+                        .div_likes
+                        {
+                                p
+                                {
+                                        margin-top: 4px;
+                                        margin-right: 0.5rem;
+
+                                        font-weight: bold;
+                                }
+                        }
 
                         a,
                         a:visited
                         {
                                 @extend %flexbox;
 
-                                width: 5rem;
+                                width: 2rem;
+                                height: 2rem;
 
                                 margin-right: 0.5rem;
-                                padding: 0.3rem;
 
                                 border-radius: 2rem;
 
@@ -216,22 +242,10 @@ html
 
                                 transition: 100ms all;
                         }
-
-                        .heart
-                        {
-                                @extend %flexbox;
-
-                                width: 2rem;
-                                height: 2rem;
-
-                                margin-right: 0.5rem;
-
-                                font-size: 1rem;
-                        }
                 }
         }
 
-        .song:hover
+        .div_track:hover
         {
                 background-color: $white;
                 color: $grey;
@@ -239,33 +253,28 @@ html
                 transition: 100ms all;
         }
 
-        .selected_song
+        .selected_track
         {
-                @extend %gradient;
+                @extend %anti_gradient;
                 color: $white;
 
-                .link_to_artist
+                .div_likes_and_downloads
                 {
-                        a
-                        {
-                                background-color: $white;
-                                color: $grey;
-                        }
-                        
+                        a,
                         a:hover,
                         a:active
                         {
                                 background-color: $white;
-                                color: $main_color;
-        
+                                color: $grey;
+
                                 transition: 100ms all;
                         }
                 }
         }
 
-        .selected_song:hover
+        .selected_track:hover
         {
-                @extend %gradient;
+                @extend %anti_gradient;
                 color: $white;
 
                 transition: 100ms all;
@@ -273,8 +282,9 @@ html
                 a:hover,
                 a:active
                 {
+                        background: $white;
                         background-color: $white;
-                        color: $main_color;
+                        color: $grey;
         
                         transition: 100ms all;
                 }

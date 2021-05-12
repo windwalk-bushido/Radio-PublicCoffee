@@ -1,4 +1,4 @@
-.empty_space, .main_controls button, .main_controls, .audio_info .track_name, .audio_info .artist_name, .audio_info {
+.empty_space, .div_main_controls button, .div_main_controls, .div_current_track_playing_info .track_name, .div_current_track_playing_info .artist_name, .div_current_track_playing_info {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -11,17 +11,17 @@
   padding: 0px;
 }
 
-.main_controls .active_state, .main_controls button:active, .main_controls button:hover, .div_track_progress .progress {
+.div_main_controls .active_state, .div_main_controls button:active, .div_main_controls button:hover, .div_track_progress .progress_bar {
   background: #d95d39;
   background: linear-gradient(90deg, #d95d39 0%, #5f0f40 100%);
 }
 
-.main_controls .active_state:hover {
+.div_main_controls .active_state:hover {
   background: #5f0f40;
   background: linear-gradient(90deg, #5f0f40 0%, #d95d39 100%);
 }
 
-.audio_info {
+.div_current_track_playing_info {
   justify-content: space-evenly;
   top: 0;
   left: 0;
@@ -34,11 +34,11 @@
   color: #F18805;
   z-index: 10;
 }
-.audio_info .artist_name {
+.div_current_track_playing_info .artist_name {
   margin-top: 0.5rem;
   font-size: 1.2rem;
 }
-.audio_info .track_name {
+.div_current_track_playing_info .track_name {
   font-size: 1.6rem;
   font-weight: bold;
 }
@@ -51,20 +51,18 @@
   position: fixed;
   height: 1.75rem;
   margin-bottom: 3.8rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
   background-color: #474747;
   color: #F18805;
   cursor: pointer;
 }
-.div_track_progress .progress {
+.div_track_progress .progress_bar {
   width: 0%;
   height: 100%;
   border-radius: 1rem;
   transition: width 0.1s linear;
 }
 
-.main_controls {
+.div_main_controls {
   justify-content: space-evenly;
   bottom: 0;
   left: 0;
@@ -78,7 +76,7 @@
   background-color: #1F1F1F;
   z-index: 10;
 }
-.main_controls button {
+.div_main_controls button {
   width: 2.8rem;
   height: 2.8rem;
   border: none;
@@ -90,32 +88,30 @@
   cursor: pointer;
   transition: 100ms all;
 }
-.main_controls button:hover {
+.div_main_controls button:hover {
   color: #FFFFFF;
   transition: 100ms all;
 }
-.main_controls button:active {
+.div_main_controls button:active {
   color: #FFFFFF;
   transition: 100ms all;
 }
-.main_controls .button_play {
+.div_main_controls .button_play {
   width: 3.2rem;
   height: 3.2rem;
-}
-.main_controls .button_play i {
   font-size: 1.6rem;
 }
-.main_controls .btn_repeat,
-.main_controls .btn_shuffle {
+.div_main_controls .btn_repeat_track,
+.div_main_controls .btn_shuffle_track {
   width: 2.4rem;
   height: 2.4rem;
   font-size: 1.2rem;
 }
-.main_controls .active_state {
+.div_main_controls .active_state {
   color: #FFFFFF;
   transition: 100ms all;
 }
-.main_controls .active_state:hover {
+.div_main_controls .active_state:hover {
   transition: 100ms all;
 }
 
