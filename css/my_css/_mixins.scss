@@ -9,7 +9,9 @@ $blue: #274C77;
 $main_color: #A3CEF1;
 $light_blue: #DCECFA;
 
-$red: #D81E5B;
+$purple: #52489C;
+
+
 
 
 %flexbox
@@ -17,17 +19,14 @@ $red: #D81E5B;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
+
         align-items: center;
         align-self: center;
         align-content: center;
         justify-content: center;
+
         width: 100%;
+        
         margin: 0px;
         padding: 0px;
-}
-
-%gradient
-{
-        background: rgb(39,76,119);
-        background: linear-gradient(90deg, rgba(39,76,119,1) 0%, rgba(163,206,241,1) 100%); 
 }

@@ -1,6 +1,6 @@
-.body .div_player_component .div_main_controls button, .body .div_player_component .div_main_controls, .body .div_player_component .empty_space, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads, .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info, .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index, .body .div_player_component .div_playlist .div_track .div_track_info, .body .div_player_component .div_playlist .div_track, .body .div_player_component .div_playlist, .body .div_player_component .div_info_about_website .div_playlist_heading, .body .div_player_component .div_info_about_website .btn_info,
-.body .div_player_component .div_info_about_website i, .body .div_player_component .div_info_about_website, .body .div_player_component .div_current_track_playing_info .track_name, .body .div_player_component .div_current_track_playing_info .artist_name, .body .div_player_component .div_current_track_playing_info, .body .div_player_component, .body .div_video, .body {
+.body, .body .div_video, .body .div_player_component, .body .div_player_component .div_current_track_playing_info, .body .div_player_component .div_current_track_playing_info .artist_name, .body .div_player_component .div_current_track_playing_info .track_name, .body .div_player_component .div_info_about_website, .body .div_player_component .div_info_about_website .btn_info,
+.body .div_player_component .div_info_about_website i, .body .div_player_component .div_info_about_website .div_playlist_heading, .body .div_player_component .div_playlist, .body .div_player_component .div_playlist .div_track, .body .div_player_component .div_playlist .div_track .div_track_info, .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index, .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
+.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited, .body .div_player_component .empty_space, .body .div_player_component .div_track_time_info, .body .div_player_component .div_main_controls, .body .div_player_component .div_main_controls button {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -10,48 +10,33 @@
   justify-content: center;
   width: 100%;
   margin: 0px;
-  padding: 0px;
-}
-
-.body .div_player_component .div_track_progress .progress_bar {
-  background: #274c77;
-  background: linear-gradient(90deg, #274c77 0%, #a3cef1 100%);
-}
+  padding: 0px; }
 
 html {
   font-size: 16px;
   font-family: Helvetica, sans-serif;
   background-color: #000000;
-  color: #DCECFA;
-}
-html p {
-  margin: 0px;
-  padding: 0px;
-}
-
-::-moz-selection {
-  background-color: #274C77;
-  color: #DCECFA;
-}
+  color: #DCECFA; }
+  html p {
+    margin: 0px;
+    padding: 0px; }
 
 ::selection {
   background-color: #274C77;
-  color: #DCECFA;
-}
+  color: #DCECFA; }
 
 .body .div_video video {
   width: 100%;
-  margin-top: 80px;
-}
+  margin-top: 80px; }
 .body .div_player_component .background_image {
   top: 0;
   left: 0;
   right: 0;
   position: fixed;
   width: 100%;
+  height: 100%;
   filter: blur(4px);
-  z-index: -10;
-}
+  z-index: -10; }
 .body .div_player_component .div_current_track_playing_info {
   justify-content: space-evenly;
   top: 0;
@@ -61,148 +46,143 @@ html p {
   height: 4rem;
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: #0F1D2E;
+  background: #0f1d2e;
+  background: linear-gradient(0deg, #0f1d2e 0%, black 100%);
   color: #A3CEF1;
-  z-index: 10;
-}
-.body .div_player_component .div_current_track_playing_info .artist_name {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-}
-.body .div_player_component .div_current_track_playing_info .track_name {
-  font-size: 1.6rem;
-  font-weight: bold;
-}
+  z-index: 10; }
+  .body .div_player_component .div_current_track_playing_info .artist_name {
+    margin-top: 0.5rem;
+    font-size: 1.2rem; }
+  .body .div_player_component .div_current_track_playing_info .track_name {
+    font-size: 1.6rem;
+    font-weight: bold; }
 .body .div_player_component .div_info_about_website .btn_info,
 .body .div_player_component .div_info_about_website i {
   width: 1.4rem;
   height: 1.4rem;
   border-style: none;
   border-radius: 100%;
+  background-color: #DCECFA;
+  color: #14273E;
   font-size: 1.6rem;
-  cursor: pointer;
-}
+  cursor: pointer; }
 .body .div_player_component .div_info_about_website i:hover {
   background-color: #14273E;
   color: #DCECFA;
-  transition: 100ms all;
-}
+  transition: 100ms all; }
 .body .div_player_component .div_info_about_website i:active {
   background-color: #14273E;
   color: #DCECFA;
-  transition: 100ms all;
-}
+  transition: 100ms all; }
 .body .div_player_component .div_info_about_website .btn_info {
   position: relative;
-  margin-top: -0.7rem;
-}
+  margin-top: -0.7rem; }
 .body .div_player_component .div_info_about_website .div_playlist_heading {
   align-content: flex-end;
   height: 4rem;
-  border-bottom: 2px solid #274C77;
-}
-.body .div_player_component .div_info_about_website .div_playlist_heading p {
-  margin: 0px;
-  margin-bottom: 0.25rem;
-  padding: 0px;
-  font-size: 1.5rem;
-}
+  border-bottom: 2px solid #274C77; }
+  .body .div_player_component .div_info_about_website .div_playlist_heading p {
+    margin: 0px;
+    margin-bottom: 0.25rem;
+    padding: 0px;
+    font-size: 1.5rem; }
 .body .div_player_component .div_playlist .div_track {
   justify-content: space-between;
   border-bottom: 2px solid #274C77;
-  cursor: pointer;
-}
-.body .div_player_component .div_playlist .div_track .div_track_info {
-  justify-content: flex-start;
-  min-width: 196px;
-  max-width: 60%;
-  padding-top: 0.6rem;
-  padding-bottom: 0.4rem;
-}
-.body .div_player_component .div_playlist .div_track .div_track_info .div_track_index {
-  min-width: 32px;
-  max-width: 20%;
-}
-.body .div_player_component .div_playlist .div_track .div_track_info .div_main_info {
-  min-width: 154px;
-  max-width: 70%;
-}
-.body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name,
-.body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
-  width: 100%;
-}
-.body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name p,
-.body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name p {
-  margin-left: 0.5rem;
-}
-.body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
-  font-weight: bold;
-}
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads {
-  justify-content: flex-end;
-  min-width: 124px;
-  max-width: 20%;
-}
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads .div_likes p {
-  margin-top: 4px;
-  margin-right: 0.5rem;
-  font-weight: bold;
-}
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.5rem;
-  border-radius: 2rem;
-  background-color: #0F1D2E;
-  color: #DCECFA;
-  text-decoration: none;
-}
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
-  transition: 100ms all;
-}
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover {
-  background-color: #DCECFA;
-  color: #274C77;
-  transition: 100ms all;
-}
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
-  background-color: #DCECFA;
-  color: #D81E5B;
-  transition: 100ms all;
-}
+  cursor: pointer; }
+  .body .div_player_component .div_playlist .div_track .div_track_info {
+    justify-content: flex-start;
+    min-width: 196px;
+    max-width: 60%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem; }
+    .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index {
+      min-width: 32px;
+      max-width: 20%; }
+    .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info {
+      min-width: 154px;
+      max-width: 70%; }
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name,
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
+        width: 100%; }
+        .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_artist_name p,
+        .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name p {
+          margin-left: 0.5rem; }
+      .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info .div_track_name {
+        font-weight: bold; }
+  .body .div_player_component .div_playlist .div_track .div_likes_and_downloads {
+    justify-content: flex-end;
+    min-width: 124px;
+    max-width: 20%; }
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads .div_likes p {
+      margin-top: 4px;
+      margin-right: 0.5rem;
+      font-weight: bold; }
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.5rem;
+      border-radius: 2rem;
+      background-color: #0F1D2E;
+      color: #DCECFA;
+      text-decoration: none; }
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+      transition: 100ms all; }
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover {
+      background-color: #DCECFA;
+      color: #274C77;
+      transition: 100ms all; }
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
+      background-color: #DCECFA;
+      color: #52489C;
+      font-size: 1.25rem;
+      transition: 100ms all; }
 .body .div_player_component .div_playlist .div_track:hover {
   background-color: #274C77;
   color: #DCECFA;
-  transition: 100ms all;
-}
+  transition: 100ms all; }
 .body .div_player_component .div_playlist .selected_track {
   background-color: #14273E;
-  color: #DCECFA;
-}
-.body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a,
-.body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:hover,
-.body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:active {
-  background-color: #DCECFA;
-  color: #0F1D2E;
-  transition: 100ms all;
-}
+  color: #DCECFA; }
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:hover,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:active {
+    background-color: #DCECFA;
+    color: #0F1D2E;
+    transition: 100ms all; }
 .body .div_player_component .div_playlist .selected_track:hover {
   background-color: #14273E;
   color: #DCECFA;
-  transition: 100ms all;
-}
-.body .div_player_component .div_playlist .selected_track:hover a:hover,
-.body .div_player_component .div_playlist .selected_track:hover a:active {
-  background: #DCECFA;
-  background-color: #DCECFA;
-  color: #0F1D2E;
-  transition: 100ms all;
-}
+  transition: 100ms all; }
+  .body .div_player_component .div_playlist .selected_track:hover a:hover,
+  .body .div_player_component .div_playlist .selected_track:hover a:active {
+    background: #DCECFA;
+    background-color: #DCECFA;
+    color: #0F1D2E;
+    transition: 100ms all; }
 .body .div_player_component .empty_space {
-  height: 89px;
-  z-index: -15;
-}
+  height: 121px;
+  z-index: -15; }
+.body .div_player_component .div_track_time_info {
+  justify-content: space-between;
+  align-content: flex-start;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 121px;
+  background: #274c77;
+  background: linear-gradient(90deg, #274c77 0%, rgba(39, 76, 119, 0) 50%, #274c77 100%);
+  color: #DCECFA;
+  z-index: 5; }
+  .body .div_player_component .div_track_time_info .current_time,
+  .body .div_player_component .div_track_time_info .duration_time {
+    margin-top: 7px;
+    margin-left: 0.5rem;
+    font-weight: bold; }
+  .body .div_player_component .div_track_time_info .duration_time {
+    margin-right: 0.5rem; }
 .body .div_player_component .div_track_progress {
   bottom: 0;
   left: 0;
@@ -213,16 +193,17 @@ html p {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   margin-bottom: 3.8rem;
-  background-color: #1F1F1F;
+  background-color: #14273E;
   color: #A3CEF1;
   cursor: pointer;
-}
-.body .div_player_component .div_track_progress .progress_bar {
-  width: 0%;
-  height: 100%;
-  border-radius: 1rem;
-  transition: width 0.1s linear;
-}
+  z-index: 7; }
+  .body .div_player_component .div_track_progress .progress_bar {
+    width: 0%;
+    height: 100%;
+    border-radius: 1rem;
+    background: #274c77;
+    background: linear-gradient(90deg, #274c77 0%, #a3cef1 100%);
+    transition: width 0.1s linear; }
 .body .div_player_component .div_main_controls {
   justify-content: space-evenly;
   bottom: 0;
@@ -234,95 +215,82 @@ html p {
   padding-top: 8px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  background-color: #0F1D2E;
-  z-index: 10;
-}
-.body .div_player_component .div_main_controls button {
-  width: 2.8rem;
-  height: 2.8rem;
-  border: none;
-  border-radius: 100%;
-  font-size: 1.4rem;
-  text-decoration: none;
-  background-color: #274C77;
-  color: #DCECFA;
-  cursor: pointer;
-  transition: 100ms all;
-}
-.body .div_player_component .div_main_controls button:hover {
-  background-color: #DCECFA;
-  color: #274C77;
-  transition: 100ms all;
-}
-.body .div_player_component .div_main_controls button:active {
-  background-color: #14273E;
-  color: #DCECFA;
-  transition: 100ms all;
-}
-.body .div_player_component .div_main_controls .button_play {
-  width: 3.2rem;
-  height: 3.2rem;
-  font-size: 1.6rem;
-}
-.body .div_player_component .div_main_controls .btn_repeat_track,
-.body .div_player_component .div_main_controls .btn_shuffle_track {
-  width: 2.4rem;
-  height: 2.4rem;
-  font-size: 1.2rem;
-}
-.body .div_player_component .div_main_controls .active_state {
-  background-color: #A3CEF1;
-  color: #14273E;
-  transition: 100ms all;
-}
-.body .div_player_component .div_main_controls .active_state:hover {
-  background-color: #DCECFA;
-  color: #274C77;
-  transition: 100ms all;
-}
+  background: #0f1d2e;
+  background: linear-gradient(180deg, #0f1d2e 0%, black 100%);
+  z-index: 10; }
+  .body .div_player_component .div_main_controls button {
+    width: 2.8rem;
+    height: 2.8rem;
+    border: none;
+    border-radius: 100%;
+    font-size: 1.4rem;
+    text-decoration: none;
+    background-color: #274C77;
+    color: #DCECFA;
+    cursor: pointer;
+    transition: 100ms all; }
+  .body .div_player_component .div_main_controls button:hover {
+    background-color: #DCECFA;
+    color: #274C77;
+    transition: 100ms all; }
+  .body .div_player_component .div_main_controls button:active {
+    background-color: #14273E;
+    color: #DCECFA;
+    transition: 100ms all; }
+  .body .div_player_component .div_main_controls .button_play {
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 1.6rem; }
+  .body .div_player_component .div_main_controls .btn_repeat_track,
+  .body .div_player_component .div_main_controls .btn_shuffle_track {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.2rem; }
+  .body .div_player_component .div_main_controls .active_state {
+    background-color: #A3CEF1;
+    color: #14273E;
+    transition: 100ms all; }
+  .body .div_player_component .div_main_controls .active_state:hover {
+    background-color: #DCECFA;
+    color: #274C77;
+    transition: 100ms all; }
 
 @media only screen and (min-device-width: 1024px) {
   .body {
-    justify-content: flex-end;
-    align-items: stretch;
-    align-content: stretch;
-    align-self: center;
-  }
-  .body .div_video {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    z-index: -1;
-  }
-  .body .div_video video {
-    margin: 0px;
-  }
-  .body .div_player_component {
-    min-width: 320px;
-    max-width: 25%;
-  }
-  .body .div_player_component .div_current_track_playing_info,
-.body .div_player_component .div_main_controls,
-.body .div_player_component .div_track_progress,
-.body .div_player_component .background_image {
-    min-width: 320px;
-    max-width: 25%;
-    left: unset;
-  }
-  .body .div_player_component .background_image {
-    height: 100%;
-    z-index: -1;
-  }
-}/*# sourceMappingURL=homepage.css.map */   .body .div_player_component .div_track_progress,
-      .body .div_player_component .background_image {
+    justify-content: flex-end; }
+    .body .div_video {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: -10; }
+      .body .div_video video {
+        margin: 0px; }
+    .body .div_player_component {
+      min-width: 320px;
+      max-width: 25%; }
+      .body .div_player_component .background_image,
+      .body .div_player_component .div_current_track_playing_info,
+      .body .div_player_component .div_track_time_info,
+      .body .div_player_component .div_track_progress,
+      .body .div_player_component .div_main_controls {
+        left: unset;
         min-width: 320px;
-        max-width: 25%;
-        left: unset; }
+        max-width: 25%; }
       .body .div_player_component .background_image {
         height: 100%;
-        z-index: -1; } }
+        z-index: -10; }
+      .body .div_player_component .div_info_about_website {
+        margin-top: 80px; }
+        .body .div_player_component .div_info_about_website .btn_info,
+        .body .div_player_component .div_info_about_website i {
+          bottom: 1rem;
+          left: 1rem;
+          position: fixed;
+          width: 2rem;
+          height: 2rem;
+          font-size: 2.3rem; } }
 
 /*# sourceMappingURL=homepage.css.map */

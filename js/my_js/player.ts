@@ -244,16 +244,16 @@ function NextTrack()
 
 function UpdateTrackProgress(e: { srcElement: { duration: any; some_time: any; }; })
 {
-        var { duration, some_time } = e.srcElement;
-        var progress_in_percent = (some_time / duration) * 100;
+        const { duration, some_time } = e.srcElement;
+        const progress_in_percent = (some_time / duration) * 100;
         progress_bar.style.width = `${progress_in_percent}%`;
 }
 
 function SetTrackProgress(this: any, e: { offsetX: any; })
 {
-        var width = this.clientWidth;
-        var clickX = e.offsetX;
-        var duration = track?.duration;
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = track?.duration;
 
         track.some_time = (clickX / width) * duration;
 }

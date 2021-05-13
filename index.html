@@ -4,14 +4,14 @@
 <head>
         <meta charset="utf-8">
         <title>Windwalk's Boombox</title>
-        <meta name="description" content="Listen to Windwalk's personal beats. Genre: Trap, Hip hop.">
+        <meta name="description" content="Listen to Windwalk's homemade beats. Genre: Trap, Hip hop.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="cassette.svg">
         <link rel="apple-touch-icon" href="cassette.svg">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/config/normalize.css">
+        <link rel="stylesheet" href="css/config/main.css">
         <link href="fontawesome/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="css/my_css/homepage.css">
 </head>
@@ -71,9 +71,19 @@
                         </div>
         
 
+
+
                         <audio src="" id="track"></audio>
                         <div class="empty_space"></div>
                 
+
+
+
+                        <div class="div_track_time_info">
+                                <p class="current_time" id="current_time_while_playing">0:00</p>
+                                <p class="duration_time" id="duration_time_while_playing">0:00</p>
+                        </div>
+
 
                         <div class="div_track_progress" id="div_track_progress">
                                 <div class="progress_bar" id="progress_bar"></div>
@@ -87,15 +97,15 @@
                                 <button type="button" name="btn_play_pause_track" id="btn_play_pause_track" class="button_play"><i class="fas fa-play" id="pause_icon"></i></button>
                                 <button type="button" name="btn_next_track" id="btn_next_track"><i class="fas fa-step-forward"></i></button>
                 
-                                <button type="button" name="shuffle_track" id="shuffle_track" class="shuffle_track"><i class="fas fa-random"></i></button>
+                                <button type="button" name="btn_shuffle_track" id="btn_shuffle_track" class="btn_shuffle_track"><i class="fas fa-random"></i></button>
                         </div>
                 </div>
         </div>
 
 
-        <script defer src="js/vendor/modernizr-3.11.2.min.js"></script>
-        <script defer src="js/plugins.js"></script>
-        <script defer src="js/main.js"></script>
+        <script defer src="js/config/vendor/modernizr-3.11.2.min.js"></script>
+        <script defer src="js/config/plugins.js"></script>
+        <script defer src="js/config/main.js"></script>
         <script defer src="js/my_js/player.js"></script>
 </body>
 
