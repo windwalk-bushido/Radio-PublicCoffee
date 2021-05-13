@@ -1,8 +1,16 @@
 $black: #000000;
 $white: #FFFFFF;
-$grey: #1F1F1F;
-$dark-grey: #474747;
-$main_color: #F18805;
+$dark_grey: #1F1F1F;
+$grey: #474747;
+
+$black_blue: #0F1D2E;
+$dark_blue: #14273E;
+$blue: #274C77;
+$main_color: #A3CEF1;
+$light_blue: #DCECFA;
+
+$red: #D81E5B;
+
 
 %flexbox
 {
@@ -20,12 +28,6 @@ $main_color: #F18805;
 
 %gradient
 {
-        background: rgb(217,93,57);
-        background: linear-gradient(90deg, rgba(217,93,57,1) 0%, rgba(95,15,64,1) 100%); 
-}
-
-%anti_gradient
-{
-        background: rgba(95,15,64,1);
-        background: linear-gradient(90deg, rgba(95,15,64,1) 0%, rgba(217,93,57,1) 100%);
+        background: rgb(39,76,119);
+        background: linear-gradient(90deg, rgba(39,76,119,1) 0%, rgba(163,206,241,1) 100%); 
 }

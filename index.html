@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="css/main.css">
         <link href="fontawesome/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="css/my_css/homepage.css">
-        <link rel="stylesheet" href="css/my_css/webmenu.css">
 </head>
 
 <body>
@@ -23,12 +22,19 @@
                         <video src="Ocean.mp4" autoplay loop muted></video>
                 </div>
         
+
+
+
                 <div class="div_player_component">
+                        <img src="images/Night Sky.jpg" class="background_image">
+
+
                         <div class="div_current_track_playing_info">
                                 <p class="artist_name" id="artist_name_of_current_track_playing">Artist Name</p>
                                 <p class="track_name" id="track_name_of_current_track_playing">Track Name</p>
                         </div>
                 
+
                         <div class="div_info_about_website">
                                 <button type="button" name="btn_info" id="btn_info" class="btn_info"><i class="fas fa-info-circle"></i></button>
                                 <div class="div_playlist_heading">
@@ -36,16 +42,7 @@
                                 </div>
                         </div>
                 
-        
-        
-        
-                        <audio src="" id="track"></audio>
-                
-                        <img src="images/Night Sky.jpg" class="background_image">
-                
-        
-        
-                        
+
                         <div class="div_playlist" id="div_playlist">
                                 <div class="div_track">
                                         <div class="div_track_info" id="track_from_playlist">
@@ -62,6 +59,7 @@
                                                 </div>
                                         </div>
                 
+
                                         <div class="div_likes_and_downloads">
                                                 <div class="div_likes">
                                                         <p id="likes_in_playlist">456</p>
@@ -70,15 +68,18 @@
                                                 <a href="#" class="btn_download"><i class="fas fa-download"></i></a>
                                         </div>
                                 </div>
-                        </div> 
+                        </div>
+        
+
+                        <audio src="" id="track"></audio>
+                        <div class="empty_space"></div>
                 
-                
-                
-                
+
                         <div class="div_track_progress" id="div_track_progress">
                                 <div class="progress_bar" id="progress_bar"></div>
                         </div>
                 
+
                         <div class="div_main_controls" id="main_controls">
                                 <button type="button" name="btn_repeat_track" id="btn_repeat_track" class="btn_repeat_track"><i class="fas fa-redo"></i></button>
                 
@@ -88,12 +89,9 @@
                 
                                 <button type="button" name="shuffle_track" id="shuffle_track" class="shuffle_track"><i class="fas fa-random"></i></button>
                         </div>
-                        <div class="empty_space"></div>
                 </div>
         </div>
 
-
-        
 
         <script defer src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script defer src="js/plugins.js"></script>

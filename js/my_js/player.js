@@ -1,4 +1,4 @@
-var main_controls = document.getElementById("div_main_controls");
+var main_controls = document.getElementById("main_controls");
 var btn_repeat_tracks = document.getElementById("btn_repeat_track");
 var btn_previous_track = document.getElementById("btn_previous_track");
 var btn_play_pause_track = document.getElementById("btn_play_pause_track");
@@ -8,24 +8,11 @@ var track = document.getElementById("track");
 var div_track_progress = document.getElementById("div_track_progress");
 var progress_bar = document.getElementById("progress_bar");
 var track_name_of_current_track_playing = document.getElementById("track_name_of_current_track_playing");
+var duration_time_while_playing = document.querySelector('#duration_time_while_playing');
+var current_time_while_playing = document.querySelector('#current_time_while_playing');
 var pause_icon = document.getElementById("pause_icon");
 /*
-const obj_tracks_xhr = new XMLHttpRequest();
-
-var json_object = "";
-
-obj_tracks_xhr.onload = function()
-{
-        json_object = JSON.parse(this.responseText);
-        console.log(json_object);
-}
-
-obj_tracks_xhr.open("get", "tracks.json");
-obj_tracks_xhr.send();
-
-
-// ---------------------------------------------------------------- //
-
+FETCH JSON FILE HERE
 
 var json_total_tracks = json_object.total_tracks;
 
@@ -71,8 +58,8 @@ function LoadTrack(tracks_list) {
 }
 LoadTrack(tracks_list[track_index]);
 CenterPlayButton();
-var current_artist = document.getElementById("artist_name_of_current_track_playing");
-current_artist.innerHTML = "Windwalk";
+var artist_name_of_current_track_playing = document.getElementById("artist_name_of_current_track_playing");
+artist_name_of_current_track_playing.innerHTML = "Windwalk";
 function ChangeSelectedSongStyle() {
     //track_from_playlist[track_index].className = "song selected_song";
     //track_from_playlist[last_track_index].className = "song";
@@ -182,6 +169,55 @@ function SetTrackProgress(e) {
     var duration = track === null || track === void 0 ? void 0 : track.duration;
     track.some_time = (clickX / width) * duration;
 }
+function DurationTime(e) {
+    var _a = e.srcElement, duration = _a.duration, some_time = _a.some_time;
+    var sec;
+    var sec_d;
+    // define minutes some_time
+    var min = (some_time == null) ? 0 : Math.floor(some_time / 60);
+    min = min < 10 ? '0' + min : min;
+    // define seconds some_time
+    function get_sec(x) {
+        if (Math.floor(x) >= 60) {
+            for (var i = 1; i <= 60; i++) {
+                if (Math.floor(x) >= (60 * i) && Math.floor(x) < (60 * (i + 1))) {
+                    sec = Math.floor(x) - (60 * i);
+                    sec = sec < 10 ? '0' + sec : sec;
+                }
+            }
+        }
+        else {
+            sec = Math.floor(x);
+            sec = sec < 10 ? '0' + sec : sec;
+        }
+    }
+    get_sec(some_time, sec);
+    // change some_time DOM
+    current_time_while_playing.innerHTML = min + ':' + sec;
+    // define minutes duration
+    var min_d = (isNaN(duration) === true) ? '0' : Math.floor(duration / 60);
+    min_d = min_d < 10 ? '0' + min_d : min_d;
+    function get_sec_d(x) {
+        if (Math.floor(x) >= 60) {
+            for (var i = 1; i <= 60; i++) {
+                if (Math.floor(x) >= (60 * i) && Math.floor(x) < (60 * (i + 1))) {
+                    sec_d = Math.floor(x) - (60 * i);
+                    sec_d = sec_d < 10 ? '0' + sec_d : sec_d;
+                }
+            }
+        }
+        else {
+            sec_d = (isNaN(duration) === true) ? '0' :
+                Math.floor(x);
+            sec_d = sec_d < 10 ? '0' + sec_d : sec_d;
+        }
+    }
+    // define seconds duration
+    get_sec_d(duration);
+    // change duration DOM
+    duration_time_while_playing.innerHTML = min_d + ':' + sec_d;
+}
+;
 btn_repeat_tracks === null || btn_repeat_tracks === void 0 ? void 0 : btn_repeat_tracks.addEventListener("click", ChangeRepeatTracksState);
 btn_previous_track === null || btn_previous_track === void 0 ? void 0 : btn_previous_track.addEventListener("click", PreviousTrack);
 btn_play_pause_track === null || btn_play_pause_track === void 0 ? void 0 : btn_play_pause_track.addEventListener("click", function () {
@@ -198,22 +234,10 @@ btn_shuffle_tracks === null || btn_shuffle_tracks === void 0 ? void 0 : btn_shuf
 track === null || track === void 0 ? void 0 : track.addEventListener("timeupdate", UpdateTrackProgress); // <- THIS
 div_track_progress === null || div_track_progress === void 0 ? void 0 : div_track_progress.addEventListener("click", SetTrackProgress);
 track === null || track === void 0 ? void 0 : track.addEventListener("ended", NextTrack);
-// Click to play song (from playlist)
-var track_index_in_playlist = document.getElementById("track_index_in_playlist");
-var track_from_playlist = document.getElementById("track_from_playlist"); // <------
-function PlayTrackOnDemand() {
-    last_track_index = track_index;
-    track_index = parseInt(track_index_in_playlist.innerHTML);
-    track_index--;
-    LoadTrack(tracks_list[track_index]);
-    PlayTrack();
-    ChangeSelectedSongStyle();
-}
-track_from_playlist === null || track_from_playlist === void 0 ? void 0 : track_from_playlist.addEventListener("click", PlayTrackOnDemand);
-track_from_playlist === null || track_from_playlist === void 0 ? void 0 : track_from_playlist.addEventListener("ended", NextTrack);
-// PLAYLIST
-var playlist = document.getElementById("div_playlist");
+track === null || track === void 0 ? void 0 : track.addEventListener('timeupdate', DurationTime);
 // For changing first track's name and artist name
+var playlist = document.getElementById("div_playlist");
+var track_index_in_playlist = document.getElementById("track_index_in_playlist");
 var track_name = document.getElementById("track_name_in_playlist");
 var artist_name = document.getElementById("artist_name_in_playlist");
 function MakePlaylist() {
