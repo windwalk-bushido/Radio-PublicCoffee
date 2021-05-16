@@ -547,7 +547,308 @@ html
                                 transition: 100ms all;
                         }
                 }
-        }  
+        }
+
+
+
+
+        .splash_page_background
+        {
+                @extend %flexbox;
+                align-items: flex-start;
+
+                top: 0;
+                right: 0;
+                left: 0;
+                position: fixed;
+
+                height: 100%;
+
+                font-size: 1.25rem;
+
+                overflow: auto;
+                z-index: 50;
+
+                .div_splash_page
+                {
+                        @extend %flexbox;
+
+                        position: absolute;
+
+                        background-color: $white;
+                        color: $black;
+
+                        .manifesto
+                        {
+                                .heading
+                                {
+                                        @extend %flexbox;
+
+                                        width: 100%;
+
+                                        padding-top: 2rem;
+                                        padding-bottom: 1rem;
+                                }
+
+                                p
+                                {
+                                        margin: 1rem;
+                                }
+                        }
+
+                        .tech
+                        {
+                                @extend %flexbox;
+
+                                .heading
+                                {
+                                        @extend %flexbox;
+
+                                        width: 100%;
+
+                                        padding-top: 2rem;
+                                        padding-bottom: 1rem;
+                                }
+
+                                .sorted
+                                {
+                                        justify-content: flex-start;
+
+                                        p
+                                        {
+                                                margin-left: 1rem;
+                                                margin-right: 1rem;
+                                        }
+
+                                        .last_one
+                                        {
+                                                margin-top: 1rem;
+                                        }
+                                }
+                        }
+
+                        .color_scheme
+                        {
+                                @extend %flexbox;
+
+                                .heading
+                                {
+                                        @extend %flexbox;
+
+                                        padding-top: 2rem;
+                                        padding-bottom: 1rem;
+                                }
+
+                                .sorted
+                                {
+                                        //@extend %flexbox;
+                                        justify-content: flex-start;
+
+                                        p
+                                        {
+                                                margin-left: 1rem;
+                                                margin-bottom: 1rem;
+                                        }
+
+                                        .black,
+                                        .black_blue,
+                                        .dark_blue,
+                                        .main_blue,
+                                        .light_blue,
+                                        .almost_white,
+                                        .white,
+                                        .purple
+                                        {
+                                                @extend %flexbox;
+                                                justify-content: flex-start;
+
+                                                p
+                                                {
+                                                        margin: 0.5rem 1rem 0 1rem;
+                                                }
+
+                                                .circle
+                                                {
+                                                        @extend %flexbox;
+
+                                                        width: 2rem;
+                                                        height: 2rem;
+
+                                                        border-radius: 100%;
+
+                                                        background-color: $black;
+
+                                                        .color
+                                                        {
+                                                                width: 1.5rem;
+                                                                height: 1.5rem;
+
+                                                                border-radius: 100%;
+
+                                                                background-color: red;
+                                                        }
+                                                }
+                                        }
+
+                                        .black 
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $white;
+
+                                                        .color
+                                                        {
+                                                                background-color: $black;
+                                                        }
+                                                }
+                                        }
+
+                                        .black_blue
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $white;
+
+                                                        .color
+                                                        {
+                                                                background-color: $black_blue;
+                                                        }
+                                                }
+                                        }
+
+                                        .dark_blue
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $white;
+
+                                                        .color
+                                                        {
+                                                                background-color: $dark_blue;
+                                                        }
+                                                }
+                                        }
+
+                                        .main_blue 
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $white;
+
+                                                        .color
+                                                        {
+                                                                background-color: $blue;
+                                                        }
+                                                }
+                                        }
+
+                                        .light_blue 
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $black;
+
+                                                        .color
+                                                        {
+                                                                background-color: $main_color;
+                                                        }
+                                                }
+                                        }
+
+                                        .almost_white 
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $black;
+
+                                                        .color
+                                                        {
+                                                                background-color: $light_blue;
+                                                        }
+                                                }
+                                        }
+
+                                        .white
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $black;
+
+                                                        .color
+                                                        {
+                                                                background-color: $white;
+                                                        }
+                                                }
+                                        }
+
+                                        .purple
+                                        {
+                                                .circle
+                                                {
+                                                        background-color: $black;
+
+                                                        .color
+                                                        {
+                                                                background-color: $purple;
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
+
+                        .links
+                        {
+                                @extend %flexbox;
+
+                                .heading
+                                {
+                                        @extend %flexbox;
+
+                                        padding-top: 2rem;
+                                        padding-bottom: 1rem;
+                                }
+
+                                .buttons
+                                {
+                                        @extend %flexbox;
+                                        
+                                        a,
+                                        a:visited
+                                        {
+                                                padding: 0.5rem;
+                                                margin-left: 0.5rem;
+                                                margin-right: 0.5rem;
+
+                                                border-radius: 0.5rem;
+        
+                                                text-decoration: none;
+        
+                                                background-color: $dark_blue;
+                                                color: $light_blue;
+
+                                                transition: all 100ms;
+                                        }
+
+                                        a:hover
+                                        {
+                                                background-color: $light_blue;
+                                                color: $blue;
+
+                                                transition: all 100ms;
+                                        }
+                                }
+                        }
+
+                        .footer
+                        {
+                                @extend %flexbox;
+                                flex-direction: column;
+
+                                margin-top: 3rem;
+                                padding-bottom: 1rem;
+                        }
+                }
+        }
 }
 
 
