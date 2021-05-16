@@ -1,4 +1,5 @@
 const main_controls = document.getElementById("main_controls");
+main_controls.scrollIntoView();
 
 const btn_repeat_tracks = document.getElementById("btn_repeat_track");
 const btn_previous_track = document.getElementById("btn_previous_track");
@@ -481,3 +482,29 @@ function MakePlaylist()
 }
 
 MakePlaylist();
+
+
+
+
+const btn_info = document.getElementById("btn_info");
+const splash_page = document.getElementById("splash_page");
+const webpage = document.getElementById("body");
+const btn_close = document.getElementById("btn_close");
+
+
+function ShowSplashScreen()
+{
+        splash_page.style.visibility = "visible";
+        webpage.style.overflow = "hidden";
+        webpage.scrollIntoView();
+}
+
+function CloseSplashScreen()
+{
+        splash_page.style.visibility = "hidden";
+        webpage.style.overflow = "auto";
+}
+
+
+btn_info?.addEventListener("click", ShowSplashScreen);
+btn_close?.addEventListener("click", CloseSplashScreen);

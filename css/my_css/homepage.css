@@ -1,6 +1,6 @@
 .body, .body .div_video, .body .div_player_component, .body .div_player_component .div_current_track_playing_info, .body .div_player_component .div_current_track_playing_info .artist_name, .body .div_player_component .div_current_track_playing_info .track_name, .body .div_player_component .div_info_about_website, .body .div_player_component .div_info_about_website .btn_info,
 .body .div_player_component .div_info_about_website i, .body .div_player_component .div_info_about_website .div_playlist_heading, .body .div_player_component .div_playlist, .body .div_player_component .div_playlist .div_track, .body .div_player_component .div_playlist .div_track .div_track_info, .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index, .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited, .body .div_player_component .empty_space, .body .div_player_component .div_track_time_info, .body .div_player_component .div_main_controls, .body .div_player_component .div_main_controls button, .body .splash_page_background, .body .splash_page_background .div_splash_page, .body .splash_page_background .div_splash_page .manifesto .heading, .body .splash_page_background .div_splash_page .tech, .body .splash_page_background .div_splash_page .tech .heading, .body .splash_page_background .div_splash_page .color_scheme, .body .splash_page_background .div_splash_page .color_scheme .heading, .body .splash_page_background .div_splash_page .color_scheme .sorted .black,
+.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited, .body .div_player_component .empty_space, .body .div_player_component .div_track_time_info, .body .div_player_component .div_main_controls, .body .div_player_component .div_main_controls button, .body .splash_page_background, .body .splash_page_background .div_splash_page, .body .splash_page_background .div_splash_page .exit, .body .splash_page_background .div_splash_page .exit .btn_close, .body .splash_page_background .div_splash_page .manifesto .heading, .body .splash_page_background .div_splash_page .tech, .body .splash_page_background .div_splash_page .tech .heading, .body .splash_page_background .div_splash_page .color_scheme, .body .splash_page_background .div_splash_page .color_scheme .heading, .body .splash_page_background .div_splash_page .color_scheme .sorted .black,
 .body .splash_page_background .div_splash_page .color_scheme .sorted .black_blue,
 .body .splash_page_background .div_splash_page .color_scheme .sorted .dark_blue,
 .body .splash_page_background .div_splash_page .color_scheme .sorted .main_blue,
@@ -36,8 +36,8 @@ html {
     padding: 0px; }
 
 ::selection {
-  background-color: #274C77;
-  color: #DCECFA; }
+  background-color: #000000;
+  color: #FFFFFF; }
 
 .body .div_video video {
   width: 100%;
@@ -276,36 +276,61 @@ html {
   position: fixed;
   height: 100%;
   font-size: 1.25rem;
+  background-color: #274C77;
+  color: #DCECFA;
   overflow: auto;
-  z-index: 50; }
+  z-index: 50;
+  visibility: hidden; }
   .body .splash_page_background .div_splash_page {
-    position: absolute;
-    background-color: #FFFFFF;
-    color: #000000; }
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute; }
+    .body .splash_page_background .div_splash_page .exit {
+      justify-content: flex-end; }
+      .body .splash_page_background .div_splash_page .exit .btn_close {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1.5rem;
+        margin-top: 1.5rem;
+        border-radius: 100%;
+        border: none;
+        font-size: 2.2rem;
+        background-color: #274C77;
+        color: #DCECFA;
+        transition: all 100ms;
+        cursor: pointer; }
+      .body .splash_page_background .div_splash_page .exit .btn_close:hover {
+        background-color: #DCECFA;
+        color: #14273E;
+        transition: all 100ms; }
     .body .splash_page_background .div_splash_page .manifesto .heading {
       width: 100%;
-      padding-top: 2rem;
       padding-bottom: 1rem; }
-    .body .splash_page_background .div_splash_page .manifesto p {
-      margin: 1rem; }
+    .body .splash_page_background .div_splash_page .manifesto .sorted {
+      width: 300px; }
+      .body .splash_page_background .div_splash_page .manifesto .sorted p {
+        margin: 1rem; }
     .body .splash_page_background .div_splash_page .tech .heading {
       width: 100%;
-      padding-top: 2rem;
+      padding-top: 4rem;
       padding-bottom: 1rem; }
     .body .splash_page_background .div_splash_page .tech .sorted {
-      justify-content: flex-start; }
+      justify-content: flex-start;
+      width: 300px; }
       .body .splash_page_background .div_splash_page .tech .sorted p {
         margin-left: 1rem;
         margin-right: 1rem; }
       .body .splash_page_background .div_splash_page .tech .sorted .last_one {
         margin-top: 1rem; }
     .body .splash_page_background .div_splash_page .color_scheme .heading {
-      padding-top: 2rem;
+      padding-top: 4rem;
       padding-bottom: 1rem; }
     .body .splash_page_background .div_splash_page .color_scheme .sorted {
-      justify-content: flex-start; }
+      justify-content: flex-start;
+      width: 300px; }
       .body .splash_page_background .div_splash_page .color_scheme .sorted p {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
         margin-bottom: 1rem; }
       .body .splash_page_background .div_splash_page .color_scheme .sorted .black,
       .body .splash_page_background .div_splash_page .color_scheme .sorted .black_blue,
@@ -324,7 +349,7 @@ html {
         .body .splash_page_background .div_splash_page .color_scheme .sorted .almost_white p,
         .body .splash_page_background .div_splash_page .color_scheme .sorted .white p,
         .body .splash_page_background .div_splash_page .color_scheme .sorted .purple p {
-          margin: 0.5rem 1rem 0 1rem; }
+          margin: 0.5rem 1rem 0 0.5rem; }
         .body .splash_page_background .div_splash_page .color_scheme .sorted .black .circle,
         .body .splash_page_background .div_splash_page .color_scheme .sorted .black_blue .circle,
         .body .splash_page_background .div_splash_page .color_scheme .sorted .dark_blue .circle,
@@ -335,6 +360,7 @@ html {
         .body .splash_page_background .div_splash_page .color_scheme .sorted .purple .circle {
           width: 2rem;
           height: 2rem;
+          margin-right: 0.5rem;
           border-radius: 100%;
           background-color: #000000; }
           .body .splash_page_background .div_splash_page .color_scheme .sorted .black .circle .color,
@@ -347,8 +373,7 @@ html {
           .body .splash_page_background .div_splash_page .color_scheme .sorted .purple .circle .color {
             width: 1.5rem;
             height: 1.5rem;
-            border-radius: 100%;
-            background-color: red; }
+            border-radius: 100%; }
       .body .splash_page_background .div_splash_page .color_scheme .sorted .black .circle {
         background-color: #FFFFFF; }
         .body .splash_page_background .div_splash_page .color_scheme .sorted .black .circle .color {
@@ -382,7 +407,7 @@ html {
         .body .splash_page_background .div_splash_page .color_scheme .sorted .purple .circle .color {
           background-color: #52489C; }
     .body .splash_page_background .div_splash_page .links .heading {
-      padding-top: 2rem;
+      padding-top: 4rem;
       padding-bottom: 1rem; }
     .body .splash_page_background .div_splash_page .links .buttons a,
     .body .splash_page_background .div_splash_page .links .buttons a:visited {
@@ -400,7 +425,7 @@ html {
       transition: all 100ms; }
     .body .splash_page_background .div_splash_page .footer {
       flex-direction: column;
-      margin-top: 3rem;
+      margin-top: 6rem;
       padding-bottom: 1rem; }
 
 @media only screen and (min-device-width: 1024px) {
@@ -439,6 +464,8 @@ html {
           position: fixed;
           width: 2rem;
           height: 2rem;
-          font-size: 2.3rem; } }
+          font-size: 2.3rem; }
+    .body .splash_page_background {
+      width: 25%; } }
 
 /*# sourceMappingURL=homepage.css.map */

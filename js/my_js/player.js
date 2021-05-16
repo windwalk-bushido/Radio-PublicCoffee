@@ -1,4 +1,5 @@
 var main_controls = document.getElementById("main_controls");
+main_controls.scrollIntoView();
 var btn_repeat_tracks = document.getElementById("btn_repeat_track");
 var btn_previous_track = document.getElementById("btn_previous_track");
 var btn_play_pause_track = document.getElementById("btn_play_pause_track");
@@ -316,3 +317,18 @@ function MakePlaylist() {
     }
 }
 MakePlaylist();
+var btn_info = document.getElementById("btn_info");
+var splash_page = document.getElementById("splash_page");
+var webpage = document.getElementById("body");
+var btn_close = document.getElementById("btn_close");
+function ShowSplashScreen() {
+    splash_page.style.visibility = "visible";
+    webpage.style.overflow = "hidden";
+    webpage.scrollIntoView();
+}
+function CloseSplashScreen() {
+    splash_page.style.visibility = "hidden";
+    webpage.style.overflow = "auto";
+}
+btn_info === null || btn_info === void 0 ? void 0 : btn_info.addEventListener("click", ShowSplashScreen);
+btn_close === null || btn_close === void 0 ? void 0 : btn_close.addEventListener("click", CloseSplashScreen);

@@ -26,8 +26,8 @@ html
 
 ::selection
 {
-        background-color: $blue;
-        color: $light_blue;
+        background-color: $black;
+        color: $white;
 }
 
 
@@ -566,17 +566,57 @@ html
 
                 font-size: 1.25rem;
 
+                background-color: $blue;
+                color: $light_blue;
+
                 overflow: auto;
                 z-index: 50;
+                visibility: hidden;
 
                 .div_splash_page
                 {
                         @extend %flexbox;
 
+                        top: 0;
+                        right: 0;
+                        left: 0;
                         position: absolute;
 
-                        background-color: $white;
-                        color: $black;
+                        .exit
+                        {
+                                @extend %flexbox;
+                                justify-content: flex-end;
+
+                                .btn_close
+                                {
+                                        @extend %flexbox;
+
+                                        width: 2rem;
+                                        height: 2rem;
+
+                                        margin-right: 1.5rem;
+                                        margin-top: 1.5rem;
+
+                                        border-radius: 100%;
+                                        border: none;
+
+                                        font-size: 2.2rem;
+
+                                        background-color: $blue;
+                                        color: $light_blue;
+
+                                        transition: all 100ms;
+                                        cursor: pointer;
+                                }
+
+                                .btn_close:hover
+                                {
+                                        background-color: $light_blue;
+                                        color: $dark_blue;
+
+                                        transition: all 100ms;
+                                }
+                        }
 
                         .manifesto
                         {
@@ -586,13 +626,17 @@ html
 
                                         width: 100%;
 
-                                        padding-top: 2rem;
                                         padding-bottom: 1rem;
                                 }
 
-                                p
+                                .sorted
                                 {
-                                        margin: 1rem;
+                                        width: 300px;
+
+                                        p
+                                        {
+                                                margin: 1rem;
+                                        }
                                 }
                         }
 
@@ -606,13 +650,15 @@ html
 
                                         width: 100%;
 
-                                        padding-top: 2rem;
+                                        padding-top: 4rem;
                                         padding-bottom: 1rem;
                                 }
 
                                 .sorted
                                 {
                                         justify-content: flex-start;
+
+                                        width: 300px;
 
                                         p
                                         {
@@ -635,18 +681,19 @@ html
                                 {
                                         @extend %flexbox;
 
-                                        padding-top: 2rem;
+                                        padding-top: 4rem;
                                         padding-bottom: 1rem;
                                 }
 
                                 .sorted
                                 {
-                                        //@extend %flexbox;
                                         justify-content: flex-start;
+
+                                        width: 300px;
 
                                         p
                                         {
-                                                margin-left: 1rem;
+                                                margin-left: 0.5rem;
                                                 margin-bottom: 1rem;
                                         }
 
@@ -664,7 +711,7 @@ html
 
                                                 p
                                                 {
-                                                        margin: 0.5rem 1rem 0 1rem;
+                                                        margin: 0.5rem 1rem 0 0.5rem;
                                                 }
 
                                                 .circle
@@ -673,6 +720,8 @@ html
 
                                                         width: 2rem;
                                                         height: 2rem;
+
+                                                        margin-right: 0.5rem;
 
                                                         border-radius: 100%;
 
@@ -684,8 +733,6 @@ html
                                                                 height: 1.5rem;
 
                                                                 border-radius: 100%;
-
-                                                                background-color: red;
                                                         }
                                                 }
                                         }
@@ -804,7 +851,7 @@ html
                                 {
                                         @extend %flexbox;
 
-                                        padding-top: 2rem;
+                                        padding-top: 4rem;
                                         padding-bottom: 1rem;
                                 }
 
@@ -844,7 +891,7 @@ html
                                 @extend %flexbox;
                                 flex-direction: column;
 
-                                margin-top: 3rem;
+                                margin-top: 6rem;
                                 padding-bottom: 1rem;
                         }
                 }
@@ -926,6 +973,11 @@ html
                                         font-size: 2.3rem;
                                 }
                         }
+                }
+
+                .splash_page_background
+                {
+                        width: 25%;
                 }
         }
 }
