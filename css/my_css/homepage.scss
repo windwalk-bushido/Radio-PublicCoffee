@@ -328,6 +328,8 @@ html
                         {
                                 background-color: $dark_blue;
                                 color: $light_blue;
+
+                                transition: 100ms all;
         
                                 .div_likes_and_downloads
                                 {
@@ -350,14 +352,16 @@ html
         
                                 transition: 100ms all;
         
-                                a:hover,
-                                a:active
+                                .div_likes_and_downloads
                                 {
-                                        background: $light_blue;
-                                        background-color: $light_blue;
-                                        color: $black_blue;
-                        
-                                        transition: 100ms all;
+                                        a:hover,
+                                        a:active
+                                        {
+                                                background-color: $light_blue;
+                                                color: $black_blue;
+                                
+                                                transition: 100ms all;
+                                        }
                                 }
                         }
                 }
@@ -977,7 +981,8 @@ html
 
                 .splash_page_background
                 {
-                        width: 25%;
+                        min-width: 320px;
+                        max-width: 25%;
                 }
         }
 }

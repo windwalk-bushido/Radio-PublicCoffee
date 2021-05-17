@@ -91,11 +91,9 @@ artist_name_of_current_track_playing.innerHTML = "Windwalk";
 
 
 
-function ChangeSelectedSongStyle()
-{
-        //track_from_playlist[track_index].className = "song selected_song";
-        //track_from_playlist[last_track_index].className = "song";
-}
+
+
+
 
 function ChangeShuffleTracksState()
 {
@@ -158,7 +156,7 @@ function GetRandomTrackIndex()
 
 function PlayTrack()
 {
-        main_controls?.classList.add("play");
+        main_controls?.classList.add("is_playing");
         btn_play_pause_track?.querySelector("i.fas")?.classList.remove("fa-play");
         btn_play_pause_track?.querySelector("i.fas")?.classList.add("fa-pause");
 
@@ -169,13 +167,138 @@ function PlayTrack()
 
 function PauseTrack()
 {
-        main_controls?.classList.remove("play");
+        main_controls?.classList.remove("is_playing");
         btn_play_pause_track?.querySelector("i.fas")?.classList.add("fa-play");
         btn_play_pause_track?.querySelector("i.fas")?.classList.remove("fa-pause");
 
         CenterPlayButton();
 
         track?.pause();
+}
+
+function PauseOrPlayTrack()
+{
+        var is_playing = main_controls.classList.contains("is_playing");
+
+        if (is_playing)
+        {
+                PauseTrack();
+        }
+        else
+        {
+                PlayTrack();
+        }
+}
+
+
+
+
+function RemoveClassFromLastSong(numberic: number)
+{
+        switch(numberic)
+        {
+                case 0:
+                        div_track_1.classList.remove("selected_track");
+                        break;
+                case 1:
+                        div_track_2.classList.remove("selected_track");
+                        break;
+                case 2:
+                        div_track_3.classList.remove("selected_track");
+                        break;
+                case 3:
+                        div_track_4.classList.remove("selected_track");
+                        break;
+                case 4:
+                        div_track_5.classList.remove("selected_track");
+                        break;
+                case 5:
+                        div_track_6.classList.remove("selected_track");
+                        break;
+                case 6:
+                        div_track_7.classList.remove("selected_track");
+                        break;
+                case 7:
+                        div_track_8.classList.remove("selected_track");
+                        break;
+                case 8:
+                        div_track_9.classList.remove("selected_track");
+                        break;
+                case 9:
+                        div_track_10.classList.remove("selected_track");
+                        break;
+                case 10:
+                        div_track_11.classList.remove("selected_track");
+                        break;
+                case 11:
+                        div_track_12.classList.remove("selected_track");
+                        break;
+        }
+}
+
+function ChangeSelectedSongStyle(requested_index: number)
+{
+        switch(requested_index)
+        {
+                case 0:
+                        div_track_1.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 1:
+                        div_track_2.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 2:
+                        div_track_3.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 3:
+                        div_track_4.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 4:
+                        div_track_5.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 5:
+                        div_track_6.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 6:
+                        div_track_7.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 7:
+                        div_track_8.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 8:
+                        div_track_9.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 9:
+                        div_track_10.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 10:
+                        div_track_11.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+                case 11:
+                        div_track_12.classList.add("selected_track");
+                        RemoveClassFromLastSong(last_track_index);
+                        break;
+        }
+}
+
+function JustPlayIt()
+{
+        LoadTrack(tracks_list[track_index]);
+        PlayTrack();
+        if(last_track_index != track_index)
+        {
+                ChangeSelectedSongStyle(track_index);
+        };
 }
 
 function PreviousTrack()
@@ -203,9 +326,7 @@ function PreviousTrack()
 
         if (track_index > -1)
         {
-                LoadTrack(tracks_list[track_index]);
-                PlayTrack();
-                ChangeSelectedSongStyle();
+                JustPlayIt();
         }
 }
 
@@ -234,19 +355,17 @@ function NextTrack()
 
         if (track_index < total_number_of_tracks)
         {
-                LoadTrack(tracks_list[track_index]);
-                PlayTrack();
-                ChangeSelectedSongStyle();
+                JustPlayIt();
         }
 }
 
 
 
 
-function UpdateTrackProgress(e: { srcElement: { duration: any; some_time: any; }; })
+function UpdateTrackProgress(e: { srcElement: { duration: any; currentTime: any; }; })
 {
-        const { duration, some_time } = e.srcElement;
-        const progress_in_percent = (some_time / duration) * 100;
+        const { duration, currentTime } = e.srcElement;
+        const progress_in_percent = (currentTime / duration) * 100;
         progress_bar.style.width = `${progress_in_percent}%`;
 }
 
@@ -256,23 +375,23 @@ function SetTrackProgress(this: any, e: { offsetX: any; })
         const clickX = e.offsetX;
         const duration = track?.duration;
 
-        track.some_time = (clickX / width) * duration;
+        track.currentTime = (clickX / width) * duration;
 }
 
 
 
 
-function DurationTime (e: { srcElement: { duration: any; some_time: any; }; }) 
+function DurationTime (e: { srcElement: { duration: any; currentTime: any; }; }) 
 {
-	const {duration, some_time} = e.srcElement;
+	const {duration, currentTime} = e.srcElement;
 	var sec;
 	var sec_d;
 
-	// define minutes some_time
-	let min = (some_time==null)? 0: Math.floor(some_time/60);
+	// define minutes of currentTime
+	let min = (currentTime==null)? 0: Math.floor(currentTime/60);
 	min = min <10 ? '0'+min:min;
 
-	// define seconds some_time
+	// define seconds of currentTime
 	function get_sec(x: number)
         {
 		if (Math.floor(x) >= 60)
@@ -294,9 +413,9 @@ function DurationTime (e: { srcElement: { duration: any; some_time: any; }; })
 		}
 	}
 
-	get_sec(some_time, sec);
+	get_sec(currentTime, sec);
 
-	// change some_time DOM
+	// change currentTime DOM
 	current_time_while_playing.innerHTML = min +':'+ sec;
 
 	// define minutes duration
@@ -338,150 +457,16 @@ function DurationTime (e: { srcElement: { duration: any; some_time: any; }; })
 
 btn_repeat_tracks?.addEventListener("click", ChangeRepeatTracksState);
 btn_previous_track?.addEventListener("click", PreviousTrack);
-btn_play_pause_track?.addEventListener("click", () => 
-{
-        var is_playing = main_controls.classList.contains("play");
-
-        if (is_playing)
-        {
-                PauseTrack();
-        }
-        else
-        {
-                PlayTrack();
-        }
-});
+btn_play_pause_track?.addEventListener("click", PauseOrPlayTrack);
 btn_next_track?.addEventListener("click", NextTrack);
 btn_shuffle_tracks?.addEventListener("click", ChangeShuffleTracksState);
 
-track?.addEventListener("timeupdate", UpdateTrackProgress); // <- THIS
+track?.addEventListener("timeupdate", UpdateTrackProgress);
 div_track_progress?.addEventListener("click", SetTrackProgress);
 
 track?.addEventListener("ended", NextTrack);
 
 track?.addEventListener('timeupdate', DurationTime);
-
-
-
-
-
-
-
-
-// For changing first track's name and artist name
-const playlist = document.getElementById("div_playlist");
-
-const track_index_in_playlist = document.getElementById("track_index_in_playlist");
-const track_name = document.getElementById("track_name_in_playlist");
-const artist_name = document.getElementById("artist_name_in_playlist");
-
-
-function MakePlaylist()
-{
-        for (var i = 0; i < total_number_of_tracks; i++)
-	{
-                if (i == 0)
-                {
-                        track_name.innerText = tracks_list[i];
-                        artist_name.innerHTML = "Windwalk";
-                        track_index_in_playlist.innerHTML = (i+1).toString();
-                }
-                else
-                {
-                        // Main track div
-                        var div_track = document.createElement("div");
-                        playlist?.appendChild(div_track);
-                        div_track.className = "div_track";
-
-
-
-
-                        // Div for main track info
-                        var div_track_info = document.createElement("div");
-                        div_track?.appendChild(div_track_info);
-                        div_track_info.className = "div_track_info";
-                        div_track_info.id = "track_from_playlist";
-
-
-
-
-                        // Track number div + track number
-                        var div_for_track_index_in_playlist = document.createElement("div");
-                        div_track_info?.appendChild(div_for_track_index_in_playlist);
-                        div_for_track_index_in_playlist.className = "div_track_index";
-
-                        var real_track_index_in_playlist = document.createElement("p");
-                        div_for_track_index_in_playlist.appendChild(real_track_index_in_playlist);
-                        real_track_index_in_playlist.id = "track_index_in_playlist";
-                        real_track_index_in_playlist.innerHTML = (i+1).toString();
-
-
-                        // Artist div + artist name
-                        var div_main_info = document.createElement("div");
-                        div_track_info?.appendChild(div_main_info);
-                        div_main_info.className = "div_main_info";
-
-                        var div_artist_name = document.createElement("div");
-                        div_main_info?.appendChild(div_artist_name);
-                        div_artist_name.className = "div_artist_name";
-
-                        var artist_name_in_playlist = document.createElement("p");
-                        div_artist_name?.appendChild(artist_name_in_playlist);
-                        artist_name_in_playlist.innerHTML = "Windwalk";
-                        artist_name_in_playlist.id = "artist_name_in_playlist";
-
-
-                        // Track div + track name
-                        var div_track_name = document.createElement("div");
-                        div_main_info?.appendChild(div_track_name);
-                        div_track_name.className = "div_track_name";
-
-                        var track_name_in_playlist = document.createElement("p");
-                        div_track_name?.appendChild(track_name_in_playlist);
-                        track_name_in_playlist.innerHTML = tracks_list[i];
-                        track_name_in_playlist.id = "track_name_in_playlist";
-
-
-
-
-                        // Div for likes and downloads
-                        var div_likes_and_downloads = document.createElement("div");
-                        div_track?.appendChild(div_likes_and_downloads);
-                        div_likes_and_downloads.className = "div_likes_and_downloads";
-
-
-                        // Number of likes
-                        var div_likes = document.createElement("div");
-                        div_likes_and_downloads.appendChild(div_likes);
-                        div_likes.className = "div_likes";
-                        var number_of_likes = document.createElement("p");
-                        div_likes.appendChild(number_of_likes);
-                        number_of_likes.id = "likes_in_playlist";
-                        var helper = 456;
-                        number_of_likes.innerHTML = helper.toString();
-
-                        // Like button
-                        var btn_like = document.createElement("a");
-                        div_likes_and_downloads?.appendChild(btn_like);
-                        btn_like.className = "btn_like";
-                        var like_icon = document.createElement("i");
-                        btn_like.appendChild(like_icon);
-                        like_icon.className = "fas fa-heart";
-
-
-                        // Artist page button
-                        var btn_download = document.createElement("a");
-                        div_likes_and_downloads?.appendChild(btn_download);
-                        btn_download.className = "btn_download";
-                        var go_to_link = document.createElement("i");
-                        btn_download.appendChild(go_to_link);
-                        go_to_link.className = "fas fa-download";
-                        btn_download.href = "#";
-                }
-        }
-}
-
-MakePlaylist();
 
 
 
@@ -508,3 +493,38 @@ function CloseSplashScreen()
 
 btn_info?.addEventListener("click", ShowSplashScreen);
 btn_close?.addEventListener("click", CloseSplashScreen);
+
+
+
+
+
+
+
+
+const div_track_1 = document.getElementById("div_track_1");
+const div_track_2 = document.getElementById("div_track_2");
+const div_track_3 = document.getElementById("div_track_3");
+const div_track_4 = document.getElementById("div_track_4");
+const div_track_5 = document.getElementById("div_track_5");
+const div_track_6 = document.getElementById("div_track_6");
+const div_track_7 = document.getElementById("div_track_7");
+const div_track_8 = document.getElementById("div_track_8");
+const div_track_9 = document.getElementById("div_track_9");
+const div_track_10 = document.getElementById("div_track_10");
+const div_track_11 = document.getElementById("div_track_11");
+const div_track_12 = document.getElementById("div_track_12");
+
+
+
+
+div_track_1.classList.add("selected_track");
+
+
+
+
+function PlayOnDemand(requested_index: number)
+{
+        last_track_index = track_index;
+        track_index = requested_index - 1;
+        JustPlayIt();
+}
