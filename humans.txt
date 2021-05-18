@@ -16,3 +16,4 @@
 # SPECIAL THANKS
 
     HTML5 Boilerplate -> (https://html5boilerplate.com);
+    Traversy Media -> (https://www.youtube.com/user/TechGuyWeb);

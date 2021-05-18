@@ -218,6 +218,8 @@ html
 
                                                 min-width: 32px;
                                                 max-width: 20%;
+
+                                                font-weight: bold;
                                         }
         
 
@@ -256,22 +258,13 @@ html
                                         @extend %flexbox;
                                         justify-content: flex-end;
         
-                                        min-width: 124px;
+                                        min-width: 92px;
                                         max-width: 20%;
         
-                                        .div_likes
-                                        {
-                                                p
-                                                {
-                                                        margin-top: 4px;
-                                                        margin-right: 0.5rem;
-        
-                                                        font-weight: bold;
-                                                }
-                                        }
-        
                                         a,
-                                        a:visited
+                                        a:visited,
+                                        button,
+                                        button:visited
                                         {
                                                 @extend %flexbox;
         
@@ -281,19 +274,23 @@ html
                                                 margin-right: 0.5rem;
         
                                                 border-radius: 2rem;
+                                                border-style: none;
         
                                                 background-color: $black_blue;
                                                 color: $light_blue;
         
                                                 text-decoration: none;
+                                                cursor: pointer;
                                         }
         
-                                        a:visited
+                                        a:visited,
+                                        button:visited
                                         {
                                                 transition: 100ms all;
                                         }
         
-                                        a:hover
+                                        a:hover,
+                                        button:hover
                                         {
                                                 background-color: $light_blue;
                                                 color: $blue;
@@ -301,7 +298,9 @@ html
                                                 transition: 100ms all;
                                         }
         
-                                        a:active
+                                        a:active,
+                                        button:active,
+                                        .btn_active
                                         {
                                                 background-color: $light_blue;
                                                 color: $purple;
@@ -335,7 +334,10 @@ html
                                 {
                                         a,
                                         a:hover,
-                                        a:active
+                                        a:active,
+                                        button,
+                                        button:hover,
+                                        button:active
                                         {
                                                 background-color: $light_blue;
                                                 color: $black_blue;
@@ -355,11 +357,20 @@ html
                                 .div_likes_and_downloads
                                 {
                                         a:hover,
-                                        a:active
+                                        button:hover
                                         {
                                                 background-color: $light_blue;
                                                 color: $black_blue;
                                 
+                                                transition: 100ms all;
+                                        }
+
+                                        a:active,
+                                        button:hover
+                                        {
+                                                background-color: $light_blue;
+                                                color: $purple;
+
                                                 transition: 100ms all;
                                         }
                                 }

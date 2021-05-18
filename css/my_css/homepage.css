@@ -1,6 +1,8 @@
 .body, .body .div_video, .body .div_player_component, .body .div_player_component .div_current_track_playing_info, .body .div_player_component .div_current_track_playing_info .artist_name, .body .div_player_component .div_current_track_playing_info .track_name, .body .div_player_component .div_info_about_website, .body .div_player_component .div_info_about_website .btn_info,
 .body .div_player_component .div_info_about_website i, .body .div_player_component .div_info_about_website .div_playlist_heading, .body .div_player_component .div_playlist, .body .div_player_component .div_playlist .div_track, .body .div_player_component .div_playlist .div_track .div_track_info, .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index, .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads, .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited, .body .div_player_component .empty_space, .body .div_player_component .div_track_time_info, .body .div_player_component .div_main_controls, .body .div_player_component .div_main_controls button, .body .splash_page_background, .body .splash_page_background .div_splash_page, .body .splash_page_background .div_splash_page .exit, .body .splash_page_background .div_splash_page .exit .btn_close, .body .splash_page_background .div_splash_page .manifesto .heading, .body .splash_page_background .div_splash_page .tech, .body .splash_page_background .div_splash_page .tech .heading, .body .splash_page_background .div_splash_page .color_scheme, .body .splash_page_background .div_splash_page .color_scheme .heading, .body .splash_page_background .div_splash_page .color_scheme .sorted .black,
+.body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited,
+.body .div_player_component .div_playlist .div_track .div_likes_and_downloads button,
+.body .div_player_component .div_playlist .div_track .div_likes_and_downloads button:visited, .body .div_player_component .empty_space, .body .div_player_component .div_track_time_info, .body .div_player_component .div_main_controls, .body .div_player_component .div_main_controls button, .body .splash_page_background, .body .splash_page_background .div_splash_page, .body .splash_page_background .div_splash_page .exit, .body .splash_page_background .div_splash_page .exit .btn_close, .body .splash_page_background .div_splash_page .manifesto .heading, .body .splash_page_background .div_splash_page .tech, .body .splash_page_background .div_splash_page .tech .heading, .body .splash_page_background .div_splash_page .color_scheme, .body .splash_page_background .div_splash_page .color_scheme .heading, .body .splash_page_background .div_splash_page .color_scheme .sorted .black,
 .body .splash_page_background .div_splash_page .color_scheme .sorted .black_blue,
 .body .splash_page_background .div_splash_page .color_scheme .sorted .dark_blue,
 .body .splash_page_background .div_splash_page .color_scheme .sorted .main_blue,
@@ -112,7 +114,8 @@ html {
     padding-bottom: 0.4rem; }
     .body .div_player_component .div_playlist .div_track .div_track_info .div_track_index {
       min-width: 32px;
-      max-width: 20%; }
+      max-width: 20%;
+      font-weight: bold; }
     .body .div_player_component .div_playlist .div_track .div_track_info .div_main_info {
       min-width: 154px;
       max-width: 70%; }
@@ -126,28 +129,32 @@ html {
         font-weight: bold; }
   .body .div_player_component .div_playlist .div_track .div_likes_and_downloads {
     justify-content: flex-end;
-    min-width: 124px;
+    min-width: 92px;
     max-width: 20%; }
-    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads .div_likes p {
-      margin-top: 4px;
-      margin-right: 0.5rem;
-      font-weight: bold; }
     .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a,
-    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads button,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads button:visited {
       width: 2rem;
       height: 2rem;
       margin-right: 0.5rem;
       border-radius: 2rem;
+      border-style: none;
       background-color: #0F1D2E;
       color: #DCECFA;
-      text-decoration: none; }
-    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited {
+      text-decoration: none;
+      cursor: pointer; }
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:visited,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads button:visited {
       transition: 100ms all; }
-    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:hover,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads button:hover {
       background-color: #DCECFA;
       color: #274C77;
       transition: 100ms all; }
-    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active {
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads a:active,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads button:active,
+    .body .div_player_component .div_playlist .div_track .div_likes_and_downloads .btn_active {
       background-color: #DCECFA;
       color: #52489C;
       font-size: 1.25rem;
@@ -162,7 +169,10 @@ html {
   transition: 100ms all; }
   .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a,
   .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:hover,
-  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:active {
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads a:active,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads button,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads button:hover,
+  .body .div_player_component .div_playlist .selected_track .div_likes_and_downloads button:active {
     background-color: #DCECFA;
     color: #0F1D2E;
     transition: 100ms all; }
@@ -171,9 +181,14 @@ html {
   color: #DCECFA;
   transition: 100ms all; }
   .body .div_player_component .div_playlist .selected_track:hover .div_likes_and_downloads a:hover,
-  .body .div_player_component .div_playlist .selected_track:hover .div_likes_and_downloads a:active {
+  .body .div_player_component .div_playlist .selected_track:hover .div_likes_and_downloads button:hover {
     background-color: #DCECFA;
     color: #0F1D2E;
+    transition: 100ms all; }
+  .body .div_player_component .div_playlist .selected_track:hover .div_likes_and_downloads a:active,
+  .body .div_player_component .div_playlist .selected_track:hover .div_likes_and_downloads button:hover {
+    background-color: #DCECFA;
+    color: #52489C;
     transition: 100ms all; }
 .body .div_player_component .empty_space {
   height: 121px;

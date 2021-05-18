@@ -1,0 +1,100 @@
+@import "mixins";
+
+
+html
+{
+        font-size: 16px;
+        font-family: Helvetica, sans-serif;
+
+        background-color: $black;
+        color: $light_blue;
+
+        p
+        {
+                margin: 0px;
+                padding: 0px;
+        }
+}
+
+
+::selection
+{
+        background-color: $black;
+        color: $white;
+}
+
+
+
+
+body
+{
+	@extend %flexbox;
+	flex-direction: column;
+	
+	height: 100%;
+
+	background-color: $black;
+
+	.message
+	{
+		@extend %flexbox;
+		flex-direction: column;
+
+		min-width: 200px;
+		max-width: 400px;
+		min-height: 200px;
+		max-height: 400px;
+
+		margin-top: 15%;
+		
+		border-radius: 1rem;
+
+		background-color: $black_blue;
+		color: $main_color;
+
+		z-index: 10;
+		
+		a,
+		a:visited
+		{
+			border-radius: 0.5rem;
+			padding: 0.5rem;
+
+			background-color: $light_blue;
+			color: $black_blue;
+			
+			text-decoration: none;
+			transition: all 100ms;
+		}
+
+		a:hover
+		{
+			background-color: $blue;
+			color: $light_blue;
+
+			transition: all 100ms;
+		}
+
+		h3,
+		h4,
+		h5
+		{
+			margin: 2rem;
+		}
+
+		h3
+		{
+			font-size: 2rem;
+		}
+
+		h4
+		{
+			font-size: 1.5rem;
+		}
+
+		h5
+		{
+			font-size: 1rem;
+		}
+	}
+}

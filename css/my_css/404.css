@@ -1,0 +1,64 @@
+body, body .message {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+html {
+  font-size: 16px;
+  font-family: Helvetica, sans-serif;
+  background-color: #000000;
+  color: #DCECFA; }
+  html p {
+    margin: 0px;
+    padding: 0px; }
+
+::selection {
+  background-color: #000000;
+  color: #FFFFFF; }
+
+body {
+  flex-direction: column;
+  height: 100%;
+  background-color: #000000; }
+  body .message {
+    flex-direction: column;
+    min-width: 200px;
+    max-width: 400px;
+    min-height: 200px;
+    max-height: 400px;
+    margin-top: 15%;
+    border-radius: 1rem;
+    background-color: #0F1D2E;
+    color: #A3CEF1;
+    z-index: 10; }
+    body .message a,
+    body .message a:visited {
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      background-color: #DCECFA;
+      color: #0F1D2E;
+      text-decoration: none;
+      transition: all 100ms; }
+    body .message a:hover {
+      background-color: #274C77;
+      color: #DCECFA;
+      transition: all 100ms; }
+    body .message h3,
+    body .message h4,
+    body .message h5 {
+      margin: 2rem; }
+    body .message h3 {
+      font-size: 2rem; }
+    body .message h4 {
+      font-size: 1.5rem; }
+    body .message h5 {
+      font-size: 1rem; }
+
+/*# sourceMappingURL=404.css.map */
