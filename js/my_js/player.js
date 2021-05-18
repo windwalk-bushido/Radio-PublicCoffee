@@ -30,7 +30,7 @@ var shuffle_state_is_on = false;
 var repeat_state_is_on = false;
 var total_number_of_tracks = tracks_list.length;
 var track_index = 0;
-var last_track_index = track_index;
+var last_track_index = 1;
 function CenterPlayButton() {
     pause_icon.style.marginLeft = "4px";
 }
@@ -102,8 +102,8 @@ function PauseOrPlayTrack() {
         PlayTrack();
     }
 }
-function RemoveClassFromLastSong(numberic) {
-    switch (numberic) {
+function RemoveClassFromLastSong(last_track_index) {
+    switch (last_track_index) {
         case 0:
             div_track_1.classList.remove("selected_track");
             break;
@@ -142,8 +142,8 @@ function RemoveClassFromLastSong(numberic) {
             break;
     }
 }
-function ChangeSelectedSongStyle(requested_index) {
-    switch (requested_index) {
+function ChangeSelectedSongStyle(track_index) {
+    switch (track_index) {
         case 0:
             div_track_1.classList.add("selected_track");
             RemoveClassFromLastSong(last_track_index);
@@ -343,31 +343,13 @@ function PlayOnDemand(requested_index) {
     track_index = requested_index - 1;
     JustPlayIt();
 }
-var liked_tracks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var array_from_cookie = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var liked_tracks = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
+var array_from_cookie = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
 var full_cookie = document.cookie;
-ReadUserLikes();
 function ReadCookie() {
-    /*
-
-    if (full_cookie != null)
-    {
-            ReadUserLikes();
-    }
-
-    //Split cookie to get array...
-    
-    array_from_cookie = full_cookie.split(";", 1);
-
-    //alert(array_from_cookie);
-
-    liked_tracks = [...array_from_cookie];
-    liked_tracks = parseInt(liked_tracks);
-
-    //alert(liked_tracks);
-
-    */
-    liked_tracks = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0];
+    liked_tracks = full_cookie.split(";", 1);
+    // Reading from a cookie doesn't work... Fix this only.
+    liked_tracks = ["1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0"];
 }
 var btn_like_1 = document.getElementById("btn_like_1");
 var btn_like_2 = document.getElementById("btn_like_2");
@@ -384,122 +366,122 @@ var btn_like_12 = document.getElementById("btn_like_12");
 function LikeSong(track_index_from_html) {
     switch (track_index_from_html) {
         case 1:
-            if (liked_tracks[0] == 0) {
-                liked_tracks[0] = 1;
+            if (liked_tracks[0] == "0") {
+                liked_tracks[0] = "1";
                 btn_like_1.classList.add("btn_active");
             }
             else {
-                liked_tracks[0] = 0;
+                liked_tracks[0] = "0";
                 btn_like_1.classList.remove("btn_active");
             }
             break;
         case 2:
-            if (liked_tracks[1] == 0) {
-                liked_tracks[1] = 1;
+            if (liked_tracks[1] == "0") {
+                liked_tracks[1] = "1";
                 btn_like_2.classList.add("btn_active");
             }
             else {
-                liked_tracks[1] = 0;
+                liked_tracks[1] = "0";
                 btn_like_2.classList.remove("btn_active");
             }
             break;
         case 3:
-            if (liked_tracks[2] == 0) {
-                liked_tracks[2] = 1;
+            if (liked_tracks[2] == "0") {
+                liked_tracks[2] = "1";
                 btn_like_3.classList.add("btn_active");
             }
             else {
-                liked_tracks[2] = 0;
+                liked_tracks[2] = "0";
                 btn_like_3.classList.remove("btn_active");
             }
             break;
         case 4:
-            if (liked_tracks[3] == 0) {
-                liked_tracks[3] = 1;
+            if (liked_tracks[3] == "0") {
+                liked_tracks[3] = "1";
                 btn_like_4.classList.add("btn_active");
             }
             else {
-                liked_tracks[3] = 0;
+                liked_tracks[3] = "0";
                 btn_like_4.classList.remove("btn_active");
             }
             break;
         case 5:
-            if (liked_tracks[4] == 0) {
-                liked_tracks[4] = 1;
+            if (liked_tracks[4] == "0") {
+                liked_tracks[4] = "1";
                 btn_like_5.classList.add("btn_active");
             }
             else {
-                liked_tracks[4] = 0;
+                liked_tracks[4] = "0";
                 btn_like_5.classList.remove("btn_active");
             }
             break;
         case 6:
-            if (liked_tracks[5] == 0) {
-                liked_tracks[5] = 1;
+            if (liked_tracks[5] == "0") {
+                liked_tracks[5] = "1";
                 btn_like_6.classList.add("btn_active");
             }
             else {
-                liked_tracks[5] = 0;
+                liked_tracks[5] = "0";
                 btn_like_6.classList.remove("btn_active");
             }
             break;
         case 7:
-            if (liked_tracks[6] == 0) {
-                liked_tracks[6] = 1;
+            if (liked_tracks[6] == "0") {
+                liked_tracks[6] = "1";
                 btn_like_7.classList.add("btn_active");
             }
             else {
-                liked_tracks[6] = 0;
+                liked_tracks[6] = "0";
                 btn_like_7.classList.remove("btn_active");
             }
             break;
         case 8:
-            if (liked_tracks[7] == 0) {
-                liked_tracks[7] = 1;
+            if (liked_tracks[7] == "0") {
+                liked_tracks[7] = "1";
                 btn_like_8.classList.add("btn_active");
             }
             else {
-                liked_tracks[7] = 0;
+                liked_tracks[7] = "0";
                 btn_like_8.classList.remove("btn_active");
             }
             break;
         case 9:
-            if (liked_tracks[8] == 0) {
-                liked_tracks[8] = 1;
+            if (liked_tracks[8] == "0") {
+                liked_tracks[8] = "1";
                 btn_like_9.classList.add("btn_active");
             }
             else {
-                liked_tracks[8] = 0;
+                liked_tracks[8] = "0";
                 btn_like_9.classList.remove("btn_active");
             }
             break;
         case 10:
-            if (liked_tracks[9] == 0) {
-                liked_tracks[9] = 1;
+            if (liked_tracks[9] == "0") {
+                liked_tracks[9] = "1";
                 btn_like_10.classList.add("btn_active");
             }
             else {
-                liked_tracks[9] = 0;
+                liked_tracks[9] = "0";
                 btn_like_10.classList.remove("btn_active");
             }
             break;
         case 11:
-            if (liked_tracks[10] == 0) {
-                liked_tracks[10] = 1;
+            if (liked_tracks[10] == "0") {
+                liked_tracks[10] = "1";
                 btn_like_11.classList.add("btn_active");
             }
             else {
-                liked_tracks[10] = 0;
+                liked_tracks[10] = "0";
                 btn_like_11.classList.remove("btn_active");
             }
             break;
         case 12:
-            if (liked_tracks[11] == 0) {
-                liked_tracks[11] = 1;
+            if (liked_tracks[11] == "0") {
+                liked_tracks[11] = "1";
                 btn_like_12.classList.add("btn_active");
             }
             else {
-                liked_tracks[11] = 0;
+                liked_tracks[11] = "0";
                 btn_like_12.classList.remove("btn_active");
             }
             break;
@@ -509,9 +491,8 @@ function LikeSong(track_index_from_html) {
     document.cookie = helper;
 }
 function ReadUserLikes() {
-    ReadCookie();
     for (var i = 0; i < total_number_of_tracks; i++) {
-        if (liked_tracks[i] == 1) {
+        if (liked_tracks[i] == "1") {
             switch (i) {
                 case 0:
                     if (btn_like_1.classList.contains("btn_active")) {
@@ -613,3 +594,29 @@ function ReadUserLikes() {
         }
     }
 }
+ReadCookie();
+ReadUserLikes();
+var btn_hide_player = document.getElementById("btn_hide_player");
+var btn_show_player = document.getElementById("btn_show_player");
+var player = document.getElementById("player");
+var is_hidden = false;
+function HideOrShowPlayer() {
+    btn_info.style.visibility = "visible";
+    btn_show_player.style.visibility = "hidden";
+    if (is_hidden == false) {
+        is_hidden = true;
+        player.style.visibility = "hidden";
+        btn_hide_player.style.visibility = "hidden";
+        btn_show_player.style.visibility = "visible";
+        player.style.overflow = "none";
+    }
+    else {
+        is_hidden = false;
+        player.style.visibility = "visible";
+        btn_hide_player.style.visibility = "visible";
+        btn_show_player.style.visibility = "hidden";
+        player.style.overflow = "auto";
+    }
+}
+btn_hide_player === null || btn_hide_player === void 0 ? void 0 : btn_hide_player.addEventListener("click", HideOrShowPlayer);
+btn_show_player === null || btn_show_player === void 0 ? void 0 : btn_show_player.addEventListener("click", HideOrShowPlayer);

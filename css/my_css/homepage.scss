@@ -52,6 +52,24 @@ html
 
 
 
+        .div_show_hide_player
+        {
+                .btn_hide_player,
+                .btn_show_player
+                {
+                        @extend %flexbox;
+
+                        width: 0px;
+                        height: 0px;
+
+                        z-index: -100;
+                        visibility: hidden;    
+                }
+        }
+
+
+
+
         .div_player_component
         {
                 @extend %flexbox;
@@ -119,6 +137,8 @@ html
                 .div_info_about_website
                 {
                         @extend %flexbox;
+
+                        margin-top: -1.25rem;
         
                         .btn_info,
                         i
@@ -941,6 +961,42 @@ html
                         video
                         {
                                 margin: 0px;
+                        }
+                }
+
+
+
+
+                .div_show_hide_player
+                {
+                        .btn_hide_player,
+                        .btn_show_player
+                        {
+                                width: 2rem;
+                                height: 2rem;
+
+                                border-radius: 100%;
+                                border-style: none;
+
+                                background-color: $dark_blue;
+                                color: $main_color;
+
+                                z-index: 3;
+                                visibility: visible;
+                        }
+
+                        .btn_hide_player
+                        {
+                                top: 50%;
+                                left: 72.5%;
+                                position: fixed;
+                        }
+
+                        .btn_show_player
+                        {
+                                bottom: 1rem;
+                                right: 1rem;
+                                position: fixed;
                         }
                 }
 
