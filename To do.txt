@@ -1,0 +1,4 @@
+	BUG When playlist comes to and end, and new song starts from the beggining of a playlist, selected tracks stays at 12th song.
+	
+	Upload your beats :)
+	

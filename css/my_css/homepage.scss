@@ -63,7 +63,27 @@ html
                         height: 0px;
 
                         z-index: -100;
-                        visibility: hidden;    
+                        visibility: hidden;
+                        transition: 100ms all;
+                        cursor: pointer;
+                }
+
+                .btn_hide_player:hover,
+                .btn_show_player:hover
+                {
+                        background-color: $light_blue;
+                        color: $dark_blue;
+        
+                        transition: 100ms all;
+                }
+
+                .btn_hide_player:active,
+                .btn_show_player:active
+                {
+                        background-color: $dark_blue;
+                        color: $light_blue;
+        
+                        transition: 100ms all;
                 }
         }
 
@@ -972,8 +992,8 @@ html
                         .btn_hide_player,
                         .btn_show_player
                         {
-                                width: 2rem;
-                                height: 2rem;
+                                width: 2.3rem;
+                                height: 2.3rem;
 
                                 border-radius: 100%;
                                 border-style: none;

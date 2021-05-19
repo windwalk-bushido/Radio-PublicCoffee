@@ -348,7 +348,7 @@ var array_from_cookie = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", 
 var full_cookie = document.cookie;
 function ReadCookie() {
     liked_tracks = full_cookie.split(";", 1);
-    // Reading from a cookie doesn't work... Fix this only.
+    // Reading from a cookie doesn't work... Fix line this only.
     liked_tracks = ["1", "0", "1", "0", "1", "0", "1", "0", "1", "0", "1", "0"];
 }
 var btn_like_1 = document.getElementById("btn_like_1");

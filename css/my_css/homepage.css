@@ -50,7 +50,19 @@ html {
   width: 0px;
   height: 0px;
   z-index: -100;
-  visibility: hidden; }
+  visibility: hidden;
+  transition: 100ms all;
+  cursor: pointer; }
+.body .div_show_hide_player .btn_hide_player:hover,
+.body .div_show_hide_player .btn_show_player:hover {
+  background-color: #DCECFA;
+  color: #14273E;
+  transition: 100ms all; }
+.body .div_show_hide_player .btn_hide_player:active,
+.body .div_show_hide_player .btn_show_player:active {
+  background-color: #14273E;
+  color: #DCECFA;
+  transition: 100ms all; }
 .body .div_player_component .background_image {
   top: 0;
   left: 0;
@@ -467,8 +479,8 @@ html {
         margin: 0px; }
     .body .div_show_hide_player .btn_hide_player,
     .body .div_show_hide_player .btn_show_player {
-      width: 2rem;
-      height: 2rem;
+      width: 2.3rem;
+      height: 2.3rem;
       border-radius: 100%;
       border-style: none;
       background-color: #14273E;

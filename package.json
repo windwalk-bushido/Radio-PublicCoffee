@@ -1,29 +1,35 @@
 {
-	"name": "radio-publiccoffee",
+	"name": "windwalks-boombox",
 	"version": "0.2.0",
 	"description": "Using this to push code directly to Surge.sh when I push to Github repo.",
 	"main": "index.html",
-	"scripts": {
+	"scripts": 
+	{
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"repository": {
+	"repository": 
+	{
 		"type": "git",
-		"url": "git+https://github.com/windwalk-bushido/Radio-PublicCoffee.git"
+		"url": "git+https://github.com/windwalk-bushido/Windwalk-s-Boombox.git"
 	},
 	"author": "windwalk-bushido",
 	"license": "SEE LICENCE IN LICENCE",
-	"bugs": {
-		"url": "https://github.com/windwalk-bushido/Radio-PublicCoffee/issues"
+	"bugs": 
+	{
+		"url": "https://github.com/windwalk-bushido/Windwalk-s-Boombox/issues"
 	},
-	"homepage": "https://github.com/windwalk-bushido/Radio-PublicCoffee#readme",
-	"devDependencies": {
+	"homepage": "https://github.com/windwalk-bushido/Windwalk-s-Boombox#readme",
+	"devDependencies": 
+	{
 		"@types/jquery": "^3.5.5",
 		"git-scripts": "^0.4.3",
 		"surge": "^0.23.0"
 	},
-	"git": {
-		"scripts": {
-			"pre-push": "surge --project ./ --domain radio-publiccoffee.surge.sh"
+	"git": 
+	{
+		"scripts": 
+		{
+			"pre-push": "surge --project ./ --domain windwalks-boombox.surge.sh"
 		}
 	}
 }
